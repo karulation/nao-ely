@@ -162,25 +162,25 @@ let handler = async (m, {conn, usedPrefix, command, text}) => {
       }
       m.reply(db)
     } else if(text == "kayu" || text == "wood") {
-      db = await lang.head(text)
+      db = await `*Berikut ini list spot farming ${text} yang saya ketahui:*\n`
       for(let i = 0; i < mobs.mats.wood.length; i++) {
          db += `\n------------------\nMonster: ${mobs.mats.wood[i].monster}\nLevel: ${mobs.mats.wood[i].lv}\nElement: ${mobs.mats.wood[i].element}\nHP: ${mobs.mats.wood[i].hp}\nEXP: ${mobs.mats.wood[i].exp}\nLokasi: ${mobs.mats.wood[i].map}`
       }
       m.reply(db)
     } else if(text == 'fauna' || text == "beast") {
-      db = await lang.head(text)
+      db = await `*Berikut ini list spot farming ${text} yang saya ketahui:*\n`
       for(let i = 0; i < mobs.mats.beast.length; i++) {
          db += `\n------------------\nMonster: ${mobs.mats.beast[i].monster}\nLevel: ${mobs.mats.beast[i].lv}\nElement: ${mobs.mats.beast[i].element}\nHP: ${mobs.mats.beast[i].hp}\nEXP: ${mobs.mats.beast[i].exp}\nLokasi: ${mobs.mats.beast[i].map}`
       }
       m.reply(db)
     } else if(text == 'obat' || text == "medic" || text == "medicine") {
-      db = await lang.head(text)
+      db = await `*Berikut ini list spot farming ${text} yang saya ketahui:*\n`
       for(let i = 0; i < mobs.mats.medic.length; i++) {
          db += `\n------------------\nMonster: ${mobs.mats.medic[i].monster}\nLevel: ${mobs.mats.medic[i].lv}\nElement: ${mobs.mats.medic[i].element}\nHP: ${mobs.mats.medic[i].hp}\nEXP: ${mobs.mats.medic[i].exp}\nLokasi: ${mobs.mats.medic[i].map}`
       }
       m.reply(db)
     } else if(text == 'kain' || text == "cloth") {
-      db = await lang.head(text)
+      db = await `*Berikut ini list spot farming ${text} yang saya ketahui:*\n`
       for(let i = 0; i < mobs.mats.cloth.length; i++) {
          db += `\n------------------\nMonster: ${mobs.mats.cloth[i].monster}\nLevel: ${mobs.mats.cloth[i].lv}\nElement: ${mobs.mats.cloth[i].element}\nHP: ${mobs.mats.cloth[i].hp}\nEXP: ${mobs.mats.cloth[i].exp}\nLokasi: ${mobs.mats.cloth[i].map}`
       }
