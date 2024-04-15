@@ -155,6 +155,7 @@ let mobs = {
 
 let handler = async (m, {conn, usedPrefix, command, text}) => {
     if (!text) throw `contoh: ${usedPrefix}${command} kayu`
+    let db
     if(text == "logam" || text == "metal") {
       db = await `*Berikut ini list spot farming ${text} yang saya ketahui:*\n`
       for(let i = 0; i < mobs.mats.metal.length; i++) {
