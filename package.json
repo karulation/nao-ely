@@ -26,16 +26,16 @@
 		"MD",
 		"baileys-md"
 	],
-	"homepage": "https://github.com/clicknetcafe/azamibot-md-multi",
+	"homepage": "https://github.com/arasea2/ely-md",
 	"author": {
-		"name": "clicknetcafe"
+		"name": "arasea2"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/clicknetcafe/azamibot-md-multi.git"
+		"url": "git+https://github.com/arasea2/ely-md.git"
 	},
 	"bugs": {
-		"url": "https://github.com/clicknetcafe/azamibot-md-multi/issues"
+		"url": "https://github.com/arasea2/ely-md/issues"
 	},
 	"license": "GPL-3.0-or-later",
 	"dependencies": {
