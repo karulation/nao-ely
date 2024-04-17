@@ -234,7 +234,6 @@ let handler = async (m, {conn, usedPrefix, command, text}) => {
     }
       }catch (e) {
         console.log(e)
-
       }
 
 }

@@ -3,6 +3,7 @@ process.on('uncaughtException', console.error)
 
 import './config.js'
 import cfonts from 'cfonts'
+import fs from 'fs'
 import Connection from './lib/connection.js'
 import Helper from './lib/helper.js'
 import db from './lib/database.js'
@@ -28,6 +29,8 @@ const args = [join(__dirname, 'main.js'), ...process.argv.slice(2)]
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
 const { say } = cfonts
 const { name, author } = require(join(__dirname, './package.json')) // https://www.stefanjudis.com/snippets/how-to-import-json-files-in-es-modules-node-js/
+
+fs.promises.mkdir(join(__dirname, './tmp'), { recursive: true })
 
 say('Lightweight\nWhatsApp Bot', {
 	font: 'chrome',

@@ -128,7 +128,7 @@ const mq_data = {
   "The Great Battle Underwater": 144200000,
 };
 
-let handler = async (m, { conn, usedPrefix, command, text }) => {
+let handler = async (m, { conn, usedPrefix, command, text, args }) => {
 
   
   const splitMqInfo = function () {
@@ -148,8 +148,6 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
   };
   
   const [mqKeys, mqValues] = splitMqInfo();
-
-  
 
   if (!text) {
     let ext = `Cara Penggunaan : *${usedPrefix}${command} <level>|<percentage>|<mq awal>|<mq akhir>|<skip venena(0/1), 0 = false, 1 = true> (Using | or / for splitting)* \n\n`;
@@ -223,7 +221,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
     txt += `Total Main Quest XP: ${mqXP}`;
 
     let [mqLv, mqLvP] = addXP(lv, lvP, mqXP);
-    m.reply(
+    await m.reply(
       `Setelah melakukan Main Quest's diatas, Anda akan mencapai Lv.${mqLv} (${mqLvP}%)`
     );
   } catch (e) {
