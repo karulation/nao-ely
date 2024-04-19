@@ -32,7 +32,7 @@ $ pkg install git -y
 $ pkg install nodejs -y
 $ pkg install ffmpeg -y
 $ pkg install imagemagick -y
-$ git clone https://github.com/arasea2/ely-md -b multi-device
+$ git clone https://github.com/arasea2/ely-md
 $ cd ely-md
 $ npm i 
 ```
