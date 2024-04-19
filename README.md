@@ -1,4 +1,4 @@
-# ely-md-md
+# ely-md
 
 <a href="https://github.com/arasea2/ely-md/network/members"><img title="Forks" src="https://img.shields.io/github/forks/arasea2/ely-md?label=Forks&color=blue&style=flat-square"></a>
 <a href="https://github.com/arasea2/ely-md/watchers"><img title="Watchers" src="https://img.shields.io/github/watchers/arasea2/ely-md?label=Watchers&color=green&style=flat-square"></a>
