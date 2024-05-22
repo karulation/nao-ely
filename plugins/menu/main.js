@@ -27,8 +27,8 @@ const defaultMenu = {
 ║⧐ 📈 OS Uptime : *%osuptime*
 ╚═════════════════════
 
-╭───「 *PROFILMU* 」
-├ • Nama  : %name!
+╭───「 *Your Profile* 」
+├ • Name  : %name!
 ├ • Role : *%role*
 ├ • Limit : *%limit*
 ╰───────────── %readmore`.trimStart(),
@@ -39,7 +39,7 @@ const defaultMenu = {
 let handler = async (m, { conn, usedPrefix: _p, __dirname, isPrems }) => {
 	try {
 		let meh = padLead(ranNumb(43), 3)
-		let nais = await (await fetch('https://raw.githubusercontent.com/arasea2/DB/main/honkai.json')).json().then(v => v.getRandom())
+		let nais = "https://telegra.ph/file/8936efcdafccc617f924c.png";
 		let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
 		let { limit, role } = db.data.users[m.sender]
 		let name = await conn.getName(m.sender).replaceAll('\n','')
