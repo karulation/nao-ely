@@ -3,7 +3,7 @@ import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 
 // Real Owner moved to db.data.datas.rowner
-global.mods = ['6283'] // Developer / Mods Number
+global.mods = ['60177637943'] // Developer / Mods Number
 global.APIs = { // API Prefix
 	// name: 'https://website'
 	nrtm: 'https://nurutomo.herokuapp.com',
@@ -25,8 +25,8 @@ global.APIKeys = { // APIKey Here
 	'https://api.lolhuman.xyz': 'apikeylu'
 }
 
-global.wait = '_Sedang Di Proses, Mohon Tunggu_....'
-global.eror = 'Terjadi Kesalahan Coba Lagi Nanti!'
+global.wait = '_Processing, please wait..._....'
+global.eror = 'ERROR! Please report to Karu'
 
 
 global.multiplier = 69 // The higher, The harder levelup
