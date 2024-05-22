@@ -1,7 +1,7 @@
 {
-	"name": "ely-md",
+	"name": "Nao Shion",
 	"version": "1.0.0",
-	"description": "WhatsApp Bot by Arasea",
+	"description": "WhatsApp Bot by Karu Shion",
 	"main": "main.js",
 	"type": "module",
 	"directories": {
@@ -26,16 +26,16 @@
 		"MD",
 		"baileys-md"
 	],
-	"homepage": "https://github.com/arasea2/ely-md",
+	"homepage": "",
 	"author": {
-		"name": "arasea2"
+		"name": "Karu Shion"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/arasea2/ely-md.git"
+		"url": ""
 	},
 	"bugs": {
-		"url": "https://github.com/arasea2/ely-md/issues"
+		"url": ""
 	},
 	"license": "GPL-3.0-or-later",
 	"dependencies": {
