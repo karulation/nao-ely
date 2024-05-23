@@ -2,7 +2,7 @@ import db from '../../lib/database.js'
 
 let handler = async (m, { conn, command, usedPrefix, text}) => {
 	let subject = await conn.getName(m.chat)
-	if (!text) return await conn.reply(m.chat, `[ ! ] Masukkan teks.\n\n*Tips :*\n@user - menampilkan tag user.${command.includes('bye') ? '' : '\n@subject - menampilkan nama grup.\n@desc - menampilkan deskripsi grup'}\n\n${command.includes('bye') ? `*Contoh :*\n${usedPrefix + command} Sayonara @user!\n\n*Hasil teks :*\nSayonara @${m.sender.split('@')[0]} !` : `*Contoh :*\n${usedPrefix + command} Hallo @user, Selamat Datang di @subject\n\n*Hasil teks :*\nHallo @${m.sender.split('@')[0]}, Selamat Datang di ${subject}`}`, m, { mentions: [m.sender] })
+	if (!text) return await conn.reply(m.chat, `[ ! ] Enter text.\n\n*Tips :*\n@user - For tag user.${command.includes('bye') ? '' : '\n@subject - For group name.\n@desc - For group description'}\n\n${command.includes('bye') ? `*Example :*\n${usedPrefix + command} Sayonara @user!\n\n*Result :*\nSayonara @${m.sender.split('@')[0]} !` : `*Example :*\n${usedPrefix + command} Hallo @user, Welcome to @subject\n\n*Result :*\nHallo @${m.sender.split('@')[0]}, Welcome to ${subject}`}`, m, { mentions: [m.sender] })
 	let chat = db.data.chats[m.chat]
 	if (text.toLowerCase() == 'default' || text.toLowerCase() == 'reset') text = ''
 	if (command.includes('bye')) chat.sBye = text
