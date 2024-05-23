@@ -9,7 +9,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 			let out = await uploadImage(img)
 			let res = await fetch(`https://api.lolhuman.xyz/api/nsfwcheck?apikey=${api.lol}&img=${out}`)
 			let json = await res.json()
-			if (json.status != '200') throw `Fitur Error!`
+			if (json.status != '200') throw `Feature Error!`
 			let get_result = json.result
 			let is_nsfw = 'No'
 			if (Number(get_result.replace("%", "")) >= 50) is_nsfw = 'Yes'
@@ -18,10 +18,10 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 			console.log(e)
 			m.reply('Fitur Error!')
 		}
-	} else m.reply(`Kirim gambar dengan caption *${usedPrefix + command}* atau tag gambar yang sudah dikirim`)
+	} else m.reply(`Send picture with caption *${usedPrefix + command}* or tag a picture`)
 }
 
-handler.help = ['ceknsfw']
+handler.help = ['checknsfw']
 handler.tags = ['information']
 handler.command = /^(ch?ec?k)nsfw|nsfw(ch?ec?k)$/i
 
