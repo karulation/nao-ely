@@ -1281,7 +1281,7 @@ export async function deleteUpdate(message) {
 
 global.dfail = (type, m, conn) => {
 	let msg = {
-		rowner: `*「OWNERR BOT ONLY」*`,
+		rowner: `*「OWNER BOT ONLY」*`,
 		owner: `*「OWNER BOT ONLY」*`,
 		mods: `*「DEV / MODS ONLY」*`,
 		premium: `*「PREMIUM USER ONLY」*\n\n*Or Free to Use All Commands in the Group :*\n${db.data.datas.linkgc || 'https://chat.whatsapp.com/EzxQmm6lU7206XIMZ32wqs'}\n\nOtherwise type this : *.privatecmd*`,
@@ -1289,10 +1289,10 @@ global.dfail = (type, m, conn) => {
 		private: `*「PRIVATE CHAT ONLY」*`,
 		admin: `*「ADMIN GROUP ONLY」*`,
 		nsfw: `[ *NSFW GAK AKTIF* ]`,
-		game: '```「 aktifkan mode game! 」```',
-		botAdmin: `*「BOT HARUS JADI ADMIN」*`,
-		unreg: 'Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Manusia.16*',
-		restrict: 'Fitur ini di *disable*!'
+		game: '```「 YOU NEED TO ACTIVATE GAME MODE (GAME ON)! 」```',
+		botAdmin: `*「BOT NEED TO BE ADMIN」*`,
+		unreg: 'You need to register for this feature:\n\n*#daftar nama.umur*\n\nExample: */daftar Manusia.16*',
+		restrict: 'This feature is *disable*!'
 	}[type]
 	if (msg) return m.reply(msg)
 }
