@@ -12,7 +12,7 @@ export async function before(m) {
 	user.role = await global.rpg.role(user.level).name
 	if (before !== user.level) {
 		let img, name = await this.getName(m.sender)
-		let txt = `Selamat 🥳, anda telah naik level!\n\n• 🧬 *Level Up : ${before} -> ${user.level}*\n_semakin sering berinteraksi dengan bot Semakin Tinggi level kamu_`
+		let txt = `Congrats! 🥳, You're level up!\n\n• 🧬 *Level Up : ${before} -> ${user.level}*\n_The more you interact with Nao, the easier for you to level up!_`
 		try {
 			const can = await import('knights-canvas')
 			let pp = await this.profilePictureUrl(m.sender, 'image').catch(_ => 'https://raw.githubusercontent.com/clicknetcafe/Databasee/main/azamibot/media/avatar_contact.jpg')
@@ -20,7 +20,7 @@ export async function before(m) {
 			await this.sendFile(m.chat, img, '', txt, m)
 		} catch {
 			try {
-				img = await levelup(`🥳 ${name.replaceAll('\n','')} naik 🧬level`, user.level)
+				img = await levelup(`🥳 ${name.replaceAll('\n','')} Level 🧬Up`, user.level)
 				await this.sendFile(m.chat, img, 'levelup.jpg', txt, m)
 			} catch {
 				await this.reply(m.chat, txt, fkontak)
