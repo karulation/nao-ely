@@ -7,7 +7,7 @@ let handler = async (m, { conn, command, usedPrefix, text}) => {
 	if (text.toLowerCase() == 'default' || text.toLowerCase() == 'reset') text = ''
 	if (command.includes('bye')) chat.sBye = text
 	else chat.sWelcome = text
-	await m.reply(`Berhasil mengubah *${command.includes('bye') ? 'Bye' : 'Welcome'}* menjadi :\n\n${text}`)
+	await m.reply(`Changed has been made for *${command.includes('bye') ? 'Bye' : 'Welcome'}* to :\n\n${text}`)
 }
 
 handler.menugroup = ['setwelcome', 'setbye']
