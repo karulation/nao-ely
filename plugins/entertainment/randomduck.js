@@ -4,7 +4,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 		await conn.sendMsg(m.chat, { image: { url: anu.url }, caption: `_Random pic : duck_` }, { quoted: m })
 	} catch (e) {
 		console.log(e)
-		m.reply(`Command ${command} sedang gangguan.`)
+		m.reply(`Command ${command} : There's something wrong, try again later.`)
 	}
 }
 
