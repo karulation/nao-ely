@@ -9,7 +9,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 		await conn.sendFile(m.chat, fimgb, '', `_© Quote untuk Anda_`, m)
 	} catch (e) {
 		console.log(e)
-		m.reply(`Terjadi kesalahan, coba lagi nanti.`)
+		m.reply(`There's something wrong, try again later.`)
 	}
 }
 
