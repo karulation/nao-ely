@@ -14,7 +14,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 			m.reply(`_${json.result.quote}_\n\n*― ${json.result.by}*`)
 		} catch (e) {
 			console.log(e)
-			m.reply(`Terjadi kesalahan, coba lagi nanti.`)
+			m.reply(`There's something wrong, try again later.`)
 		}
 	}
 }
