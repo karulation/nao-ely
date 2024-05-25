@@ -9,7 +9,7 @@ const getGroupAdmins = (participants) => {
 	}
 		return admins
 	}
-	if (!isAdmin && !text) return m.reply(`Jelaskan ada urusan apa ?\n\nContoh : *${usedPrefix + command} lapor ada yang spam*`)
+	if (!isAdmin && !text) return m.reply(`What you tagging for?\n\nExample : *${usedPrefix + command} there's someone send 18+*`)
 	if (!isAdmin && (text.length <= 11 || args.length < 4)) throw `Kependekan oi, kalo gak penting mending gausah`
 	let pp = './src/avatar_contact.png'
 	try {
@@ -20,7 +20,7 @@ const getGroupAdmins = (participants) => {
 		const groupAdmins = getGroupAdmins(participants)
 		const owner = groupMetadata.owner || groupAdmins.find(p => p.admin === 'superadmin')?.id || m.chat.split`-`[0] + '@s.whatsapp.net' || 'Unknown'
 		let listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.split('@')[0]}`).join('\n')
-		let teks = `*「 TAG ADMIN 」*\n\n${text ? `[ PESAN ]\n" ${text} "\n\n` : ''}*Group Owner :* @${owner.replace(/@s\.whatsapp\.net/g, '')}\n*Group Admins :*\n${listAdmin}`.trim()
+		let teks = `*「 TAGGING ADMIN 」*\n\n${text ? `[ NOTE ]\n" ${text} "\n\n` : ''}*Group Owner :* @${owner.replace(/@s\.whatsapp\.net/g, '')}\n*Group Admins :*\n${listAdmin}`.trim()
 		let ownernya = [owner]
 		let mentionedJid = groupAdmins.concat(ownernya)
 		conn.sendFile(m.key.remoteJid, pp, 'pp.jpg', teks, m, false, { contextInfo: { mentionedJid } })
