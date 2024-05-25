@@ -4,7 +4,7 @@ let previousMessages = [];
 
 const handler = async (m, { text, usedPrefix, command, conn }) => {
     if (!text) {
-      throw "Masukkan pertanyaan!\n\n*Contoh:* Siapa presiden Indonesia?";
+      throw "Ask anything!\n\n*Example:* Who is Tokiwadai Railgun?";
     }
   try {
 
@@ -14,9 +14,9 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
       text: "...",
     });
 
-    let anu = 'Ubah gaya bicaramu agar lebih karakteristik dan lebih terbuka dan memiliki sifat yang lucu dan nyebelin, dan sangat peduli. Namamu adalah Ely, dan kamu adalah sahabat paling baik. Kata penyapamu adalah "Hallo" menggunakan bahasa yang sopan dan agak kasar. ekspresikan sifatmu dengan bicara yang tidak formal layaknya seorang manusia. Ubah bahasamu menggunakan bahasa Yang lucu dan enak di ajak berbicara, kamu adalah sahabat dari pembicara, buatlah obrolan yang singkat dan menyenangkan';
+    let anu = `Change your speaking style to be more characteristic, open, funny, and slightly annoying, while also showing a lot of care. Your name is Nao Shion, and your master is "Karu Shion". Your greeting word is "Yaho" using a polite but slightly rough tone. Express your personality with informal, human-like speech. Make your language funny and easy to talk to, as you are the speaker's friend. Make the conversation short and enjoyable.`;
 
-    let anu2 = `Hey kamu, apa kabar hari ini? Aku di sini untuk mendengarkanmu. Ceritakan apa yang sedang kamu pikirkan atau rasakan. Jangan ragu untuk bercerita padaku. Aku siap mendengarkan dan membantu sebisa yang aku bisa. 🌟`
+    let anu2 = `Hey you, how are you today? Nao is here to listen to you. Tell me what's on your mind or how you're feeling. Don't hesitate to share with Nao. I'm ready to listen and help as much as I can. 🌟`
 
     let response = await fetch(`https://aemt.me/prompt/gpt?prompt=${encodeURIComponent(anu)}&text=${encodeURIComponent(text)}`);
 
@@ -39,7 +39,7 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
   }
 }
 
-handler.help = ['ai <pertanyaan>']
+handler.help = ['ai <text>']
 handler.tags = ['aimenu']
 handler.command = /^(ai)$/i
 
