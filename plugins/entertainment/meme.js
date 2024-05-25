@@ -21,7 +21,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 				if (Buffer.byteLength(fimgb) < 22000) throw Error()
 				await conn.sendMsg(m.chat, { image: fimgb, caption: `_© meme receh_` }, { quoted: m })
 			} catch (e) {
-				m.reply(`Terjadi kesalahan, coba lagi nanti.`)
+				m.reply(`There's something wrong, try again later.`)
 			}
 		}
 	}
