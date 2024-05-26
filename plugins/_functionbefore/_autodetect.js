@@ -7,32 +7,32 @@ export async function before(m) {
 	if (!m.messageStubType || !m.isGroup) return !1
 	let edtr = `@${m.sender.split`@`[0]}`
 	if (m.messageStubType == 21) {
-		await this.reply(m.chat, `${edtr} mengubah Subject Grup menjadi :\n*${m.messageStubParameters[0]}*`, fkontak, { mentions: [m.sender] })
+		await this.reply(m.chat, `${edtr} change group name to :\n*${m.messageStubParameters[0]}*`, fkontak, { mentions: [m.sender] })
 	} else if (m.messageStubType == 22) {
-		await this.reply(m.chat, `${edtr} telah mengubah icon grup.`, fkontak, { mentions: [m.sender] })
+		await this.reply(m.chat, `${edtr} change group icon.`, fkontak, { mentions: [m.sender] })
 	} else if (m.messageStubType == 1 || m.messageStubType == 23 || m.messageStubType == 132) {
-		await this.reply(m.chat, `${edtr} *mereset* link grup!`, fkontak, { mentions: [m.sender] })
+		await this.reply(m.chat, `${edtr} *reset* group link!`, fkontak, { mentions: [m.sender] })
 	} else if (m.messageStubType == 24) {
-		await this.reply(m.chat, `${edtr} mengubah deskripsi grup.\n\n${m.messageStubParameters[0]}`, fkontak, { mentions: [m.sender] })
+		await this.reply(m.chat, `${edtr} change description.\n\n${m.messageStubParameters[0]}`, fkontak, { mentions: [m.sender] })
 	} else if (m.messageStubType == 25) {
-		await this.reply(m.chat, `${edtr} telah mengatur agar *${m.messageStubParameters[0] == 'on' ? 'hanya admin' : 'semua peserta'}* yang dapat mengedit info grup.`, fkontak, { mentions: [m.sender] })
+		await this.reply(m.chat, `${edtr} change for *${m.messageStubParameters[0] == 'on' ? 'only admin' : 'all members'}* can edit group info.`, fkontak, { mentions: [m.sender] })
 	} else if (m.messageStubType == 26) {
 		const ms = /on/.test(m.messageStubParameters[0])
-		await this.reply(m.chat, `${edtr} telah *${ms ? 'menutup' : 'membuka'}* grup!\nSekarang ${ms ? 'hanya admin yang' : 'semua peserta'} dapat mengirim pesan.`, fkontak, { mentions: [m.sender] })
+		await this.reply(m.chat, `${edtr} have *${ms ? 'close' : 'open'}* group!\nNow ${ms ? 'only admin' : 'all members'} can send message.`, fkontak, { mentions: [m.sender] })
 		db.data.chats[m.chat].autolevelup = false
 	} else if (m.messageStubType == 28) {
-		await this.reply(m.chat, `${edtr} telah mengeluarkan @${m.messageStubParameters[0].split`@`[0]} dari grup.`, fkontak, { mentions: [m.sender, m.messageStubParameters[0]] })
+		await this.reply(m.chat, `${edtr} has kick @${m.messageStubParameters[0].split`@`[0]} from group.`, fkontak, { mentions: [m.sender, m.messageStubParameters[0]] })
 	} else if (m.messageStubType == 29) {
-		await this.reply(m.chat, `${edtr} telah menjadikan @${m.messageStubParameters[0].split`@`[0]} sebagai admin.`, fkontak, { mentions: [m.sender, m.messageStubParameters[0]] })
+		await this.reply(m.chat, `${edtr} have promote @${m.messageStubParameters[0].split`@`[0]} as admin.`, fkontak, { mentions: [m.sender, m.messageStubParameters[0]] })
 	} else if (m.messageStubType == 30) {
-		await this.reply(m.chat, `${edtr} telah memberhentikan @${m.messageStubParameters[0].split`@`[0]} dari admin.`, fkontak, { mentions: [m.sender, m.messageStubParameters[0]] })
+		await this.reply(m.chat, `${edtr} have demote @${m.messageStubParameters[0].split`@`[0]} from admin.`, fkontak, { mentions: [m.sender, m.messageStubParameters[0]] })
 	} else if (m.messageStubType == 72) {
-		await this.reply(m.chat, `${edtr} mengubah durasi pesan sementara menjadi *@${m.messageStubParameters[0]}*`, fkontak, { mentions: [m.sender] })
+		await this.reply(m.chat, `${edtr} change disappear messages to *@${m.messageStubParameters[0]}*`, fkontak, { mentions: [m.sender] })
 	} else if (m.messageStubType == 123) {
-		await this.reply(m.chat, `${edtr} *menonaktifkan* pesan sementara.`, fkontak, { mentions: [m.sender] })
+		await this.reply(m.chat, `${edtr} *deactivate* disappear messages.`, fkontak, { mentions: [m.sender] })
 	} else if (m.messageStubType == 145) {
 		const ms = /on/.test(m.messageStubParameters[0])
-		await this.reply(m.chat, `${edtr} *${ms ? 'mengaktifkan' : 'menonaktifkan'}* 'MEMBERSHIP_JOIN_APPROVAL_MODE'.`, fkontak, { mentions: [m.sender] })
+		await this.reply(m.chat, `${edtr} *${ms ? 'activate' : 'deactivate'}* 'MEMBERSHIP_JOIN_APPROVAL_MODE'.`, fkontak, { mentions: [m.sender] })
 	}else if (m.messageStubType == 32 || m.messageStubType == 27) {
 		if (process.uptime() < 300) return !1 // won't respond in 5 minutes (60x5), avoid spam while LoadMessages
 		let add = m.messageStubType == 27 ? true : false
@@ -47,7 +47,7 @@ export async function before(m) {
 		let ava_cont = 'https://raw.githubusercontent.com/clicknetcafe/Databasee/main/azamibot/media/avatar_contact.jpg'
 		let pp = await this.profilePictureUrl(user, 'image').catch(_ => ava_cont)
 		let ppgc = await this.profilePictureUrl(id, 'image').catch(_ => ava_cont)
-		let text = (add ? (chat.sWelcome || this.welcome || Connection.conn.welcome || 'Welcome, @user!').replace('@subject', namegc).replace('@desc', chat.isBanned ? `${chat.lastmute > 0 ? `Bot sedang di mute selama :\n${(chat.mutecd - (new Date - chat.lastmute)).toTimeString()}` : `Bot lagi dalam mode nyimak ya, tunggu ownernya nyalain.`}` : (meta.desc?.toString() || '~')) : (chat.sBye || this.bye || Connection.conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
+		let text = (add ? (chat.sWelcome || this.welcome || Connection.conn.welcome || 'Welcome, @user!').replace('@subject', namegc).replace('@desc', chat.isBanned ? `${chat.lastmute > 0 ? `Bot has been muted for :\n${(chat.mutecd - (new Date - chat.lastmute)).toTimeString()}` : `Bot in maintenance mode.`}` : (meta.desc?.toString() || '~')) : (chat.sBye || this.bye || Connection.conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
 		try {
 			const can = await (await import('canvafy')).default
 			pp = await new can.WelcomeLeave()
