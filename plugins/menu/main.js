@@ -17,7 +17,7 @@ let tags = {
 }
 const defaultMenu = {
 	before: `
-╔═══ *「 %me 」* 
+╔═══ *「 %me (STILL IN-DEVELOPMENT)」* 
 ║
 ║⧐ ⸨ *.owner* ⸩
 ║⧐ ⸨ *.info* ⸩
