@@ -12,6 +12,8 @@ import { format } from 'util'
 import { plugins } from './lib/plugins.js'
 import { smsg } from './lib/simple.js'
 
+global.prefix = "/"
+
 /** @type {import('@whiskeysockets/baileys')} */
 const { getContentType } = (await import('@whiskeysockets/baileys')).default
 
