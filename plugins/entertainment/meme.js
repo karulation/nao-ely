@@ -4,7 +4,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     let json = await response.json();
     let memeUrl = json.url;
 
-    let fimg = await fetch(memeUrl);
+    let fimg = await fetch(memeUrl); 
     let fimgb = Buffer.from(await fimg.arrayBuffer());
     if (Buffer.byteLength(fimgb) < 22000) throw Error();
     await conn.sendMsg(m.chat, { image: fimgb, caption: `_© here your meme_` }, { quoted: m });
