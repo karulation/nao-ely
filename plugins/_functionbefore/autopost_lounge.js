@@ -15,14 +15,16 @@ export async function before(m, { conn, text, participants }) {
         return emojiRegex.test(text.trim());
     };
 
-    // Return early if the message only contains emojis, is empty, or starts with a slash
-    if (isOnlyEmoteOrEmpty(m.text) || m.text.trim().startsWith('/')) {
+    let q = m.quoted ? m.quoted : m;
+    let mime = (q.msg || q).mimetype || q.mediaType || '';
+
+    // Return early if the message only contains emojis, is empty, or starts with a slash ("/")
+    // but allow processing if there is media attached
+    if (!mime && (isOnlyEmoteOrEmpty(m.text) || m.text.trim().startsWith('/'))) {
         return true;
     }
 
     if (m.chat === groupID) {
-        let q = m.quoted ? m.quoted : m;
-        let mime = (q.msg || q).mimetype || q.mediaType || '';
         let senderUsername = m.sender.split('@')[0];
         let textMessage = `${m.text}\n\n-by @${senderUsername}`;
         let mentions = [m.sender];
@@ -39,9 +41,8 @@ export async function before(m, { conn, text, participants }) {
         } else {
             if (/video|image/g.test(mime) && !/webp/g.test(mime)) {
                 // General message with media
-                // let media = await q.download?.();
+                let media = await q.download?.();
                 for (const nonGamingGroup of nonGamingGroups) {
-                    let media = await q.download?.();
                     await conn.sendFile(nonGamingGroup, media, '', textMessage, null, false, { mentions });
                 }
             } else {
@@ -59,8 +60,8 @@ export async function before(m, { conn, text, participants }) {
 // Function to check for gaming keywords
 function isGamingMessage(text) {
     const gamingKeywords = [
-        'wild rift', 'mobile legends', 'league of legends', 'dota', 'pubg', 'fortnite',
-        'apex legends', 'valorant', 'honkai', 'wuthering waves', 'blue archive',
+        'wild rift', 'mobile legends', 'league of legends', 'dota', 'pubg', 'fortnite', 
+        'apex legends', 'valorant', 'honkai', 'wuthering waves', 'blue archive', 
         'star rail', 'genshin', 'call of duty'
     ];
     const lowerText = text.toLowerCase(); // Convert text to lowercase for case-insensitive comparison
