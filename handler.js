@@ -1111,7 +1111,7 @@ export async function handler(chatUpdate) {
 				else
 					m.exp += xp
 				if (!isPrems && plugin.limit && db.data.users[m.sender].limit < plugin.limit * 1) {
-					this.reply(m.chat, `Your already reach your *${usedPrefix}buy*`, m)
+					this.reply(m.chat, `Your already reach your limit, become premium to enjoy unlimited bot usage!\n\n Click link to buy: https://wa.me/60177637943`, m)
 					continue // Limit habis
 				}
 				if (plugin.level > _user.level) {
