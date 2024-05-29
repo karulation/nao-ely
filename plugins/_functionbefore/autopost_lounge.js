@@ -41,8 +41,8 @@ export async function before(m, { conn, text, participants }) {
         } else {
             if (/video|image/g.test(mime) && !/webp/g.test(mime)) {
                 // General message with media
-                let media = await q.download?.();
                 for (const nonGamingGroup of nonGamingGroups) {
+                    q.download?.();
                     await conn.sendFile(nonGamingGroup, media, '', textMessage, null, false, { mentions });
                 }
             } else {
