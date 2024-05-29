@@ -50,20 +50,61 @@ export async function before(m) {
 		let text = (add ? (chat.sWelcome || this.welcome || Connection.conn.welcome || 'Welcome, @user!').replace('@subject', namegc).replace('@desc', chat.isBanned ? `${chat.lastmute > 0 ? `Bot has been muted for :\n${(chat.mutecd - (new Date - chat.lastmute)).toTimeString()}` : `Bot in maintenance mode.`}` : (meta.desc?.toString() || '~')) : (chat.sBye || this.bye || Connection.conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
 		try {
 			const can = await (await import('canvafy')).default
-			pp = await new can.WelcomeLeave()
-				.setAvatar(pp)
-				.setBackground('image', bg)
-				.setTitle(add ? 'Welcome' : 'Goodbye', add ? '#3495eb' : '#eb4034')
-				.setDescription(`${add ? 'Hello' : 'Sayonara'} ${name} | ${add ? 'Welcome to' : 'Leaving from'} ${namegc}`, '#34eb7d')
-				.setBorder("#2a2e35")
-				.setAvatarBorder("#2a2e35")
-				.setOverlayOpacity(0.6)
-				.build()
-			await this.sendFile(id, pp, '', text, fkontak, false, { mentions: [user] })
-		} catch (e) {
-			console.log(e)
-			await this.reply(id, text, fkontak, { mentions: [user] })
-		}
+			// pp = await new can.WelcomeLeave()
+			// 	.setAvatar(pp)
+			// 	.setBackground('image', bg)
+			// 	.setTitle(add ? 'Welcome' : 'Goodbye', add ? '#3495eb' : '#eb4034')
+			// 	.setDescription(`${add ? 'Hello' : 'Sayonara'} ${name} | ${add ? 'Welcome to' : 'Leaving from'} ${namegc}`, '#34eb7d')
+			// 	.setBorder("#2a2e35")
+			// 	.setAvatarBorder("#2a2e35")
+			// 	.setOverlayOpacity(0.6)
+			// 	.build()const canvas = Canvas.createCanvas(1772, 633);
+
+
+			//below is new one
+		        const ctx = canvas.getContext('2d');
+		        const background = await Canvas.loadImage(bg);
+		        ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+		
+		        ctx.strokeStyle = '#f2f2f2';
+		        ctx.strokeRect(0, 0, canvas.width, canvas.height);
+		
+		        let textString3 = `${name}`;
+		        if (textString3.length >= 14) {
+		            ctx.font = 'bold 100px Genta';
+		            ctx.fillStyle = '#f2f2f2';
+		            ctx.fillText(textString3, 720, canvas.height / 2 + 20);
+		        } else {
+		            ctx.font = 'bold 150px Genta';
+		            ctx.fillStyle = '#f2f2f2';
+		            ctx.fillText(textString3, 720, canvas.height / 2 + 20);
+		        }
+		
+		        let textString4 = `Member #${meta.participants.length}`;
+		        ctx.font = 'bold 60px Genta';
+		        ctx.fillStyle = '#f2f2f2';
+		        ctx.fillText(textString4, 750, canvas.height / 2 + 125);
+		
+		        let textString5 = `${namegc}`;
+		        ctx.font = 'bold 60px Genta';
+		        ctx.fillStyle = '#f2f2f2';
+		        ctx.fillText(textString5, 700, canvas.height / 2 - 150);
+		
+		        ctx.beginPath();
+		        ctx.arc(315, canvas.height / 2, 250, 0, Math.PI * 2, true);
+		        ctx.closePath();
+		        ctx.clip();
+		
+		        const avatar = await Canvas.loadImage(pp);
+		        ctx.drawImage(avatar, 65, canvas.height / 2 - 250, 500, 500);
+		
+		        pp = canvas.toBuffer();
+		
+		        await this.sendFile(id, pp, '', text, fkontak, false, { mentions: [user] })
+		    } catch (e) {
+		        console.log(e)
+		        await this.reply(id, text, fkontak, { mentions: [user] })
+		    }
 	} else {
 		console.log({
 			messageStubType: m.messageStubType,
