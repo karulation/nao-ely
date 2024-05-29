@@ -1,5 +1,5 @@
 let handler = async (m, { conn, text, usedPrefix, command, participants }) => {
-  var id_codingHub = "";
+  var id_codingHub = "120363162175386174@g.us";
   if(m.chat == id_codingHub){
   	let q = m.quoted ? m.quoted : m
   	let mime = (q.msg || q).mimetype || q.mediaType || ''
@@ -14,7 +14,6 @@ let handler = async (m, { conn, text, usedPrefix, command, participants }) => {
 
 handler.command = /^(everyone)$/i
 
-handler.admin = true
 handler.group = true
 
 export default handler
