@@ -1,31 +1,18 @@
 let handler = async (m, { conn, usedPrefix, command }) => {
-	try {
-		let anu = await fetch(`https://candaan-api.vercel.app/api/image`)
-			let json = await anu.json()
-			let fimg = await fetch(json.data[Math.floor(Math.random() * json.data.length)].url)
-			let fimgb = Buffer.from(await fimg.arrayBuffer())
-			if (Buffer.byteLength(fimgb) < 22000) throw Error()
-			await conn.sendMsg(m.chat, { image: fimgb, caption: `_© meme receh_` }, { quoted: m })
-	} catch (e) {
-		try {
-			let anu = await fetch(`https://candaan-api.vercel.app/api/image/random`)
-			let json = await anu.json()
-			let fimg = await fetch(json.data.url)
-			let fimgb = Buffer.from(await fimg.arrayBuffer())
-			if (Buffer.byteLength(fimgb) < 22000) throw Error()
-			await conn.sendMsg(m.chat, { image: fimgb, caption: `_© meme receh_` }, { quoted: m })
-		} catch (e) {
-			try {
-				let fimg = await fetch(`https://api.lolhuman.xyz/api/meme/memeindo?apikey=${api.lol}`)
-				let fimgb = Buffer.from(await fimg.arrayBuffer())
-				if (Buffer.byteLength(fimgb) < 22000) throw Error()
-				await conn.sendMsg(m.chat, { image: fimgb, caption: `_© meme receh_` }, { quoted: m })
-			} catch (e) {
-				m.reply(`There's something wrong, try again later.`)
-			}
-		}
-	}
-}
+  try {
+    let response = await fetch(`https://meme-api.com/gimme`);  // Fetches a random meme
+    let json = await response.json();
+    let memeUrl = json.url;
+
+    let fimg = await fetch(memeUrl);
+    let fimgb = Buffer.from(await fimg.arrayBuffer());
+    if (Buffer.byteLength(fimgb) < 22000) throw Error();
+    await conn.sendMsg(m.chat, { image: fimgb, caption: `_© here your meme_` }, { quoted: m });
+  } catch (e) {
+    // Handle errors (optional)
+    m.reply(`There's something wrong, try again later.`);
+  }
+};
 
 handler.help = ['meme']
 handler.tags = ['entertainment']
