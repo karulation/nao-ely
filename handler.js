@@ -24,6 +24,23 @@ const isLinux = (os.platform() === 'win32') ? false : true
  * @this {import('./lib/connection').Socket}
  * @param {import('@whiskeysockets/baileys').BaileysEventMap<unknown>['messages.upsert']} chatUpdate
  */
+
+// Function to reset user limits
+function resetUserLimits() {
+    for (let user in db.data.users) {
+        if (db.data.users.hasOwnProperty(user)) {
+            db.data.users[user].limit = 20; // Reset limit to 20
+        }
+    }
+    // Schedule the reset for the next day at 6 am
+    const now = new Date();
+    const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 6, 0, 0); // Next day at 6 am
+    const timeUntilReset = tomorrow.getTime() - now.getTime();
+    setTimeout(resetUserLimits, timeUntilReset);
+}
+
+resetUserLimits();
+
 export async function handler(chatUpdate) {
 	this.msgqueque = this.msgqueque || new Queque()
 	if (!chatUpdate)
@@ -52,7 +69,7 @@ export async function handler(chatUpdate) {
 					if (!isNumber(user.exp))
 						user.exp = 0
 					if (!isNumber(user.limit))
-						user.limit = 120
+						user.limit = 20
 					if (!isNumber(user.lastclaim))
 						user.lastclaim = 0
 					if (!('registered' in user))
@@ -457,7 +474,7 @@ export async function handler(chatUpdate) {
 						user.spamcount = 0
 				} else db.data.users[m.sender] = {
 					exp: 0,
-					limit: 120,
+					limit: 20,
 					lastclaim: 0,
 					registered: false,
 					viewstatus: false,
@@ -1090,15 +1107,15 @@ export async function handler(chatUpdate) {
 				_user.spamcount += 1
 				let xp = 'exp' in plugin ? parseInt(plugin.exp) : 17 // XP Earning per command
 				if (xp > 200)
-					m.reply('Ngecit -_-') // Hehehe
+					m.reply(`You're BEATER -_-`) // Hehehe
 				else
 					m.exp += xp
 				if (!isPrems && plugin.limit && db.data.users[m.sender].limit < plugin.limit * 1) {
-					this.reply(m.chat, `Limit anda habis, silahkan beli melalui *${usedPrefix}buy*`, m)
+					this.reply(m.chat, `Your already reach your *${usedPrefix}buy*`, m)
 					continue // Limit habis
 				}
 				if (plugin.level > _user.level) {
-					this.reply(m.chat, `diperlukan level ${plugin.level} untuk menggunakan perintah ini. Level kamu ${_user.level}`, m)
+					this.reply(m.chat, `need to be level ${plugin.level} to use this command. Your level right now is ${_user.level}`, m)
 					continue // If the level has not been reached
 				}
 				let extra = {
