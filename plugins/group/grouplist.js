@@ -21,7 +21,7 @@ let handler = async (m, { conn, usedPrefix, command, text, isBotAdmin }) => {
 *Ephemeral :* ${gc[x].ephemeralDuration ? `${gc[x].ephemeralDuration / 86400} Day(s)` : 'Off'}
 *Edit Group Info :* ${gc[x].restrict ? 'Only Admins' : 'All Participants'}
 *Send Messages :* ${gc[x].announce ? 'Only Admins' : 'All Participants'}
-*Durasi :* ${timer <= 0 ? 'Tanpa Batas Waktu' : `${timer.toTimeString()}`}
+*Dissapearing Message :* ${timer <= 0 ? 'Not set' : `${timer.toTimeString()}`}
 ───────────────────`
 		} catch (e) { console.log(e) }
 	}
