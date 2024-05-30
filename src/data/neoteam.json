@@ -1,0 +1,31 @@
+{
+  "igdepartment": {
+    "members": [
+      {
+        "name": "Muichiro",
+        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "total_need_to_post": 3
+      },
+      {
+        "name": "Riku Fubuki",
+        "days": ["Monday", "Wednesday", "Friday"],
+        "total_need_to_post": 2
+      },
+      {
+        "name": "Muisu",
+        "days": ["Tuesday", "Thursday", "Saturday"],
+        "total_need_to_post": 1
+      },
+      {
+        "name": "Ren",
+        "days": ["Monday", "Tuesday", "Wednesday"],
+        "total_need_to_post": 2
+      },
+      {
+        "name": "Son",
+        "days": ["Thursday", "Friday", "Saturday"],
+        "total_need_to_post": 3
+      }
+    ]
+  }
+}
