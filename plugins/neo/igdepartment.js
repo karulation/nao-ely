@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 // Define the path to the JSON file
-const neoTeamPath = path.join(__dirname, 'path_to_your_neo_team_json_file.json');
+const neoTeamPath = path.join(__dirname, '../../src/data/neoteam.json');
 
 // Load the JSON data
 let neoTeam = JSON.parse(fs.readFileSync(neoTeamPath));
