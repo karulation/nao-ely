@@ -32,7 +32,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
             .toBuffer();
 
         // Send the resized and overlaid image back to the chat
-        await conn.sendFile(m.chat, resizedImage, 'resized_with_overlay.jpg', 'Here is your resized image with the overlay!', m);
+        await conn.sendFile(m.chat, resizedImage, 'neo_watermarked.jpg', 'Here is your image with NEOANICOM watermark!', m);
     } catch (error) {
         console.error('Error resizing image:', error);
         await conn.reply(m.chat, 'Sorry, there was an error processing your image.', m);
