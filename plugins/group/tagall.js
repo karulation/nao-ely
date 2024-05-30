@@ -18,7 +18,6 @@ handler.tagsgroup = ['group']
 handler.command = /^(tagall)$/i
 
 handler.admin = true
-handler.botAdmin = true
 handler.group = true
 
 export default handler
