@@ -2,8 +2,8 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { conn, usedPrefix, command, text }) => {
     try {
-        var media = 'https://telegra.ph/file/aa321d2670c88d1bc835d.jpg';
-        var textMessage = "‿︵‿︵୨˚̣̣̣͙୧ - - ୨˚̣̣̣͙୧‿︵‿︵\nNEO STAFF INFO\nName : Hazu\nPosition : Neo Anti-Skill : First Class\n\nA friendly guy, gamer, not a weeb but likes to watch anime (not much), introvert, I also will give you advice if you did something wrong. I ain't describing my whole personality here, so hope you will have a great day. Just a friendly reminder, we all make mistakes, it's what makes us human. I work in the dark to serve the light, so be careful while chatting. ಡ⁠ ͜⁠ ⁠ʖ⁠ ⁠ಡ\n‿︵‿︵୨˚̣̣̣͙୧ - - ୨˚̣̣̣͙୧‿︵‿︵";
+        var media = 'https://telegra.ph/file/ceeaef936958232fdf7b5.jpg';
+        var textMessage = "*REIKI INTRODUCTION*\n══ ══ ══ ≪ °❈° ≫ ══ ══ ══\n\nName: Setsuna Reiki (yall can just call me Rei)\nPosition: Manager of Neo Anti-Skill\nJoined group: All possible NEO community groups\nBirthday: 9/4\nDescription: Your friendly neighborhood admin. Loves reading, YT reactions or shorts, and sleeping. Feel free to ask or talk to me about anything, Ill try to help as much as I could.\n\nTiktok: Asyraaf-Rei\nIG: asura.reiki_\n\nLike to play games or karaoke at DC, so feel free to join whenever you want.\n=======================\nHave a great day...ฅ⁠^⁠•ω•⁠^⁠ฅ";
         
         await conn.sendFile(m.chat, media, '', textMessage, m);
     } catch (e) {
