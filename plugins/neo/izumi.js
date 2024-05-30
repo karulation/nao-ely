@@ -13,7 +13,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 };
 
 handler.help = ['izumi'];
-handler.tags = ['neo'];
+handler.tags = ['Neo Intro'];
 handler.command = /^(izumi)$/i;
 
 export default handler;
