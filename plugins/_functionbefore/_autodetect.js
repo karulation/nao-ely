@@ -39,7 +39,7 @@ export async function before(m) {
 		let user = m.messageStubParameters[0]
 		let id = m.chat
 		let chat = db.data.chats[id]
-		// if (!chat.welcome) return !1
+		if (!chat.welcome) return !1
 		if (m.chat=="120363020837863962@g.us") return !1 //neo lounge
 		let meta = await Connection.store.fetchGroupMetadata(id, this.groupMetadata)
 		let bg = `https://raw.githubusercontent.com/clicknetcafe/Databasee/main/azamibot/media/picbot/menus/menus_${padLead(ranNumb(43), 3)}.jpg`
