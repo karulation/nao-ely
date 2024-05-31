@@ -729,7 +729,7 @@ export async function handler(chatUpdate) {
 					if (!('permaBan' in chat))
 						chat.permaBan = false
 					if (!('welcome' in chat))
-						chat.welcome = false
+						chat.welcome = true
 					if (!('detect' in chat))
 						chat.detect = false
 					if (!('sWelcome' in chat))
