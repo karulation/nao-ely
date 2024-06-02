@@ -3,29 +3,43 @@
     "members": [
       {
         "name": "Muichiro",
-        "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "total_need_to_post": 3
+        "days": [
+          "Saturday"
+        ],
+        "total_need_to_post": 0
       },
       {
         "name": "Riku Fubuki",
-        "days": ["Monday", "Wednesday", "Friday"],
-        "total_need_to_post": 2
+        "days": [
+          "Sunday",
+          "Thursday"
+        ],
+        "total_need_to_post": 0
       },
       {
         "name": "Muisu",
-        "days": ["Tuesday", "Thursday", "Saturday"],
-        "total_need_to_post": 1
+        "days": [
+          "Tuesday",
+          "Sunday"
+        ],
+        "total_need_to_post": 0
       },
       {
         "name": "Ren",
-        "days": ["Monday", "Tuesday", "Wednesday"],
-        "total_need_to_post": 2
+        "days": [
+          "Tuesday",
+          "Thursday"
+        ],
+        "total_need_to_post": 0
       },
       {
         "name": "Son",
-        "days": ["Thursday", "Friday", "Saturday"],
-        "total_need_to_post": 3
+        "days": [
+          "Saturday"
+        ],
+        "total_need_to_post": 0
       }
-    ]
+    ],
+    "lastRecurringDate": "02/06/2024"
   }
-}
+} 
