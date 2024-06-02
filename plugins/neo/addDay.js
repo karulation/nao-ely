@@ -1,6 +1,11 @@
 import fs from 'fs'
 import path from 'path'
 import fetch from 'node-fetch'
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 
 // Define the path to the JSON file
 const neoTeamPath = path.join(__dirname, '../../src/data/neoteam.json');
@@ -39,8 +44,6 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     await conn.reply(m.chat, 'Successfully added days for the member in the department.', m);
 }
 
-handler.help = ['addday']
-handler.tags = ['NEO INSTAGRAM']
 handler.command = /^(addday)$/i
 
 export default handler
