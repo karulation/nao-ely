@@ -28,7 +28,7 @@ export async function before(m, { conn }) {
         const currentHour = now.getHours();
 
         // Check if the current hour is before 9 AM (hour < 9)
-        if (currentHour < 2) {
+        if (currentHour < 8) {
             //console.log('Recurring task will not run before 9 AM.');
             return; // Exit the function if before 9 AM
         }
