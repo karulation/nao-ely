@@ -13,9 +13,9 @@ let neoTeam = JSON.parse(fs.readFileSync(neoTeamPath, 'utf-8'));
 
 let handler = async (m, { conn, text }) => {
     // Check if the chat is the specific one where this command should work
-    // if (m.chat !== '60177637943-1634743268@g.us') {
-    //     return;
-    // }
+    if (m.chat !== '60177637943-1634743268@g.us') {
+        return;
+    }
 
     // Assuming `text` is the member's name
     const memberName = text.trim(); // Ensure no leading/trailing spaces
