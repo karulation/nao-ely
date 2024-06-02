@@ -10,6 +10,10 @@ const neoTeamPath = path.join(__dirname, '../../src/data/neoteam.json');
 
 let handler = async (m, { conn }) => {
     try {
+        if (m.chat !== '60177637943-1634743268@g.us') {
+            return;
+        }
+        
         // Load the JSON data
         let neoTeam = JSON.parse(fs.readFileSync(neoTeamPath, 'utf-8'));
 
