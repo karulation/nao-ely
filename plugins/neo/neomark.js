@@ -38,18 +38,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
                 .composite([{ input: overlayImage, gravity: 'center' }]) // Overlay the image in the center
                 .toBuffer();
 
-            // Add text overlay on top center of the image
-            let finalImage = await sharp(resizedImage)
-                .overlayWith(Buffer.from(text), {
-                    top: 10, // Adjust top position as needed
-                    left: 'center', // Center align the text horizontally
-                    gravity: 'north'
-                })
-                .toBuffer();
-
-            // Send the resized, overlaid, and text-added image back to the chat
-            await conn.sendFile(m.chat, finalImage, 'neo_watermarked.jpg', 'Here is your image with NEOANICOM watermark and text overlay!', m);
-
+            // Send the resized and overlaid image back to the chat
+            await conn.sendFile(m.chat, resizedImage, 'neo_watermarked.jpg', 'Here is your image with NEOANICOM watermark!', m);
         } else if (/video\/mp4/.test(mime)) {
             // Save the downloaded video to a temporary file
             let videoPath = path.join(__dirname, '../../media/temp_video.mp4');
@@ -95,4 +85,3 @@ handler.tags = ['tools'];
 handler.command = /^(neomark)$/i;
 
 export default handler;
- 
