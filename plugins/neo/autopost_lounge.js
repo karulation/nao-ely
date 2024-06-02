@@ -26,7 +26,7 @@ export async function before(m, { conn, text, participants }) {
 
     if (m.chat === groupID) {
         let senderUsername = m.sender.split('@')[0];
-        let textMessage = `${m.text}\n\n-by @${senderUsername}`;
+        let textMessage = `${m.text}\n\n-by @${senderUsername}\n\n`;
         let mentions = [m.sender];
 
         if (isGamingMessage(m.text)) {
