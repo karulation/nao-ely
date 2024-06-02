@@ -67,7 +67,7 @@ export async function before(m, { conn }) {
         if (membersToPost.length > 0) {
             //console.log(`Members who need to post on ${todayDayOfWeek} (${today}):`);
             var media = 'https://telegra.ph/file/aa321d2670c88d1bc835d.jpg';
-            conn.sendFile('120363226270078711@g.us', media, 'image.jpg', `*Members who need to post on ${todayDayOfWeek} (${today}):*\n- ${membersToPost.join('\n- ')}`, m);
+            conn.sendFile('60177637943-1634743268@g.us', media, 'image.jpg', `*Members who need to post on ${todayDayOfWeek} (${today}):*\n- ${membersToPost.join('\n- ')}`, m);
             membersToPost.forEach(name => //console.log(`- ${name}`));
         } else {
             //console.log(`No members need to post on ${todayDayOfWeek} (${today}).`);
