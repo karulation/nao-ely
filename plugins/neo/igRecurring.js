@@ -29,7 +29,7 @@ export async function before(m, { conn }) {
 
         // Check if the current hour is before 9 AM (hour < 9)
         if (currentHour < 2) {
-            console.log('Recurring task will not run before 9 AM.');
+            //console.log('Recurring task will not run before 9 AM.');
             return; // Exit the function if before 9 AM
         }
 
@@ -38,7 +38,7 @@ export async function before(m, { conn }) {
 
         // Check if the last recurring date is the same as today's date
         if (neoTeam.igdepartment.lastRecurringDate === today) {
-            console.log('Recurring task already executed for today.');
+            //console.log('Recurring task already executed for today.');
             return; // Exit the function if already executed for today
         }
 
@@ -65,15 +65,15 @@ export async function before(m, { conn }) {
 
         // Display the names of members who need to post today
         if (membersToPost.length > 0) {
-            console.log(`Members who need to post on ${todayDayOfWeek} (${today}):`);
+            //console.log(`Members who need to post on ${todayDayOfWeek} (${today}):`);
             var media = 'https://telegra.ph/file/aa321d2670c88d1bc835d.jpg';
             conn.sendFile('120363226270078711@g.us', media, 'image.jpg', `*Members who need to post on ${todayDayOfWeek} (${today}):*\n- ${membersToPost.join('\n- ')}`, m);
-            membersToPost.forEach(name => console.log(`- ${name}`));
+            membersToPost.forEach(name => //console.log(`- ${name}`));
         } else {
-            console.log(`No members need to post on ${todayDayOfWeek} (${today}).`);
+            //console.log(`No members need to post on ${todayDayOfWeek} (${today}).`);
         }
 
-        console.log('Recurring task executed at', new Date().toLocaleTimeString());
+        //console.log('Recurring task executed at', new Date().toLocaleTimeString());
     }
 
 
