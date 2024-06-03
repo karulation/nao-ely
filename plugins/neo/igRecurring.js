@@ -2,9 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-
 export async function before(m, { conn }) {
-
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
 
@@ -28,8 +26,8 @@ export async function before(m, { conn }) {
         const currentHour = now.getHours();
 
         // Check if the current hour is before 9 AM (hour < 9)
-        if (currentHour < 8) {
-            //console.log('Recurring task will not run before 9 AM.');
+        if (currentHour < 9) {
+            console.log('Recurring task will not run before 9 AM.');
             return; // Exit the function if before 9 AM
         }
 
@@ -38,7 +36,7 @@ export async function before(m, { conn }) {
 
         // Check if the last recurring date is the same as today's date
         if (neoTeam.igdepartment.lastRecurringDate === today) {
-            //console.log('Recurring task already executed for today.');
+            console.log('Recurring task already executed for today.');
             return; // Exit the function if already executed for today
         }
 
@@ -68,15 +66,13 @@ export async function before(m, { conn }) {
             //console.log(`Members who need to post on ${todayDayOfWeek} (${today}):`);
             var media = 'https://telegra.ph/file/aa321d2670c88d1bc835d.jpg';
             conn.sendFile('60177637943-1634743268@g.us', media, 'image.jpg', `*Members who need to post on ${todayDayOfWeek} (${today}):*\n- ${membersToPost.join('\n- ')}`, m);
-            membersToPost.forEach(name => //console.log(`- ${name}`));
+            membersToPost.forEach(name => console.log(`- ${name}`)); // corrected loop
         } else {
-            //console.log(`No members need to post on ${todayDayOfWeek} (${today}).`);
+            console.log(`No members need to post on ${todayDayOfWeek} (${today}).`);
         }
 
-        //console.log('Recurring task executed at', new Date().toLocaleTimeString());
+        console.log('Recurring task executed at', new Date().toLocaleTimeString());
     }
-
-
 
     // Function to schedule the recurring task
     function scheduleRecurringTask() {
