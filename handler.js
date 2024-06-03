@@ -782,7 +782,7 @@ export async function handler(chatUpdate) {
 					presence: false,
 					isBanned: false,
 					permaBan: false,
-					welcome: false,
+					welcome: true,
 					detect: false,
 					sWelcome: '',
 					sBye: '',
