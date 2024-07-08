@@ -65,7 +65,8 @@ function isGamingMessage(text) {
     const gamingKeywords = [
         'wild rift', 'mobile legends', 'league of legends', 'dota', 'pubg', 'fortnite', 
         'apex legends', 'valorant', 'honkai', 'wuthering waves', 'blue archive', 
-        'star rail', 'genshin', 'call of duty', 'epic games', 'riot games', 'mihoyo', 'esports'
+        'star rail', 'genshin', 'call of duty', 'epic games', 'riot games', 'mihoyo', 'esports',
+        'menang', 't1'. 'win', 'league'
     ];
     const lowerText = text.toLowerCase(); // Convert text to lowercase for case-insensitive comparison
     return gamingKeywords.some(keyword => lowerText.includes(keyword)); // Check if any keyword exists in the text
