@@ -3,7 +3,7 @@ import db from '../../lib/database.js';
 export async function before(m, { conn, text, participants }) {
     // Group IDs
     const groupID = '120363020837863962@g.us'; // Replace with actual group ID
-    const gamingGroups = ['120363226270078711@g.us']; // Replace with actual gaming group ID
+    const gamingGroups = ['120363022290154127@g.us']; // Replace with actual gaming group ID
     const nonGamingGroups = ['60177637943-1627735681@g.us', '60177637943-1634746023@g.us']; // Replace with actual non-gaming group IDs
 
     // Function to check if a string only contains emojis or is empty
