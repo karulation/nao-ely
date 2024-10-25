@@ -48,7 +48,7 @@ export async function before(m, { conn, text, participants }) {
         });
 
         // Notify the HQ group about the bad word usage
-        const notificationMessage = `!! Bad language detected from @${senderUsername} in group *${group.name}*. Admin please check the group and warning them!`;
+        const notificationMessage = `!! Bad language detected from @${senderUsername} in group *${group.name}*. Admin please check the group and warning them!\n\n*@${senderUsername} :* \n${m.text}`;
         await conn.reply(neoHQ, notificationMessage, null, {
             mentions: [m.sender]
         });
