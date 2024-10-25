@@ -39,16 +39,16 @@ export async function before(m, { conn, text, participants }) {
     const group = neoGroups.find(g => g.id === m.chat);
 
     // Check if the message is from a Neo group and contains bad words
-    if (group && detectBadWords(m.text)) {
+    if (group && detectBadWords(m.text, badWords)) {
         const senderUsername = m.sender.split('@')[0];
         
         // Warn the sender in the current group chat
-        await conn.reply(m.chat, `⚠️ Warning: @${senderUsername}, please refrain from using inappropriate language.`, null, {
+        await conn.reply(m.chat, `!! Warning: @${senderUsername}, it seems like you're not behaving properly. An admin will come and check on you`, null, {
             mentions: [m.sender]
         });
 
         // Notify the HQ group about the bad word usage
-        const notificationMessage = `⚠️ Bad language detected from @${senderUsername} in group ${group.name}.`;
+        const notificationMessage = `!! Bad language detected from @${senderUsername} in group *${group.name}*. Admin please check the group and warning them!`;
         await conn.reply(neoHQ, notificationMessage, null, {
             mentions: [m.sender]
         });
@@ -60,7 +60,7 @@ export async function before(m, { conn, text, participants }) {
 }
 
 // Function to check for bad words
-function detectBadWords(text) {
+function detectBadWords(text, badWords) {
     const lowerText = text.toLowerCase();
     return badWords.some(word => lowerText.includes(word));
 }
