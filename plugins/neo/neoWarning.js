@@ -5,7 +5,8 @@ export async function before(m, { conn, text, participants }) {
     const neoGroups = [
         '120363022290154127@g.us',  // Neo Arcus
         '60177637943-1627735681@g.us',  // Neo Asterisk
-        '60177637943-1634746023@g.us'  // Non-gaming group ID 2
+        '60177637943-1634746023@g.us',
+        '120363226270078711@g.us'// Neo Iota
     ]; // Replace with actual group IDs
 
     // Group to send notifications about bad words
