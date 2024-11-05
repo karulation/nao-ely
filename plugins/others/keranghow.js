@@ -8,9 +8,9 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
 	} : {})
 }
 
-handler.menufun = ['gay', 'pintar', 'cantik', 'ganteng', 'gabut', 'gila', 'lesbi', 'stress', 'bucin', 'jones', 'sadboy'].map(v => 'how' + v + ' siapa?')
+handler.menufun = ['smart', 'beatiful', 'handsome', 'stress', 'sadboy'].map(v => 'how' + v + ' siapa?')
 handler.tagsfun = ['kerang']
-handler.command = /^((how|cek)(gay|pintar|cantik|ganteng|gabut|gila|lesbi|stress?|bucin|jones|sadboy))/i
+handler.command = /^((how)(smart|beatiful|handsome|stress?|sadboy))/i
 
 handler.group = true
 
