@@ -13,9 +13,9 @@ export async function before(m, { conn, text, participants }) {
 
     // List of bad words
     const badWords = [
-        'hentai', 'yuri', 'bdsm', 'boobs', 'oppai', 'manko', 'pussy', 'yaoi', 'dick', 'konek',
+        'hentai', 'bdsm', 'boobs', 'oppai', 'manko', 'pussy', 'yaoi', 'dick', 'konek',
         'penis', 'fuck', 'thighs', 'ahegao', 'bokep', 'lesbian', 'geyh', 'gei', 'kiss', 'thigh',
-        'ketek', 'armpit', 'pedo', 'seggs', 'segs', 'blowjob', 'awek', 'nigga', 'keling', 'bodoh'
+        'ketek', 'armpit', 'pedo', 'seggs', 'segs', 'blowjob', 'nigga', 'keling', 'gay',
     ];
 
     // Helper function to check if a string only contains emojis or is empty
@@ -62,5 +62,10 @@ export async function before(m, { conn, text, participants }) {
 // Function to check for bad words
 function detectBadWords(text, badWords) {
     const lowerText = text.toLowerCase();
-    return badWords.some(word => lowerText.includes(word));
+    return badWords.some(word => {
+        // Create a regular expression to match the whole word
+        const regex = new RegExp(`\\b${word}\\b`, 'i');
+        return regex.test(lowerText);
+    });
 }
+
