@@ -20,13 +20,13 @@ let handler = async (m, { conn, isPrems, text }) => {
 		str += `${about ? `*About :* ${about.replaceAll('\n','')}\n` : ''}`
 		str += `*Number :* ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}\n`
 		str += `*Link :* https://wa.me/${who.split`@`[0]}\n`
-		str += `*Level :* ${level}\n`
-		str += `*Role :* ${role}\n`
-		str += `*EXP :* ${exp} (${exp - min} / ${xp})\n`
-		str += `*Money :* ${money}\n`
+		// str += `*Level :* ${level}\n`
+		// str += `*Role :* ${role}\n`
+		// str += `*EXP :* ${exp} (${exp - min} / ${xp})\n`
+		// str += `*Money :* ${money}\n`
 		let who2 = who.split`@`[0]
 		let list = [...db.data.datas.prems.filter(v => v.user !== '').map(v => v.user), ...db.data.datas.rowner.map(v => v[0]+'@s.whatsapp.net'), ...db.data.datas.owner.map(v => v[0]+'@s.whatsapp.net'), conn.user.jid]
-		str += `*Limit :* ${list.includes(who) ? '~ Infinity ~' : limit}\n`
+		// str += `*Limit :* ${list.includes(who) ? '~ Infinity ~' : limit}\n`
 		str += `${lastclaim > 0 ? `\n*Last Claim :* ${new Date(lastclaim)}` : ''}`
 		await conn.sendMsg(m.chat, { image: { url: pp, fileName: 'pp.jpg'}, caption: str, mentions: [who]}, { quoted: m})
 	} catch (e) {

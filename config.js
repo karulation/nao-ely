@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url'
 
 // Real Owner moved to db.data.datas.rowner
 global.mods = ['60177637943'] // Developer / Mods Number
+global.dbUrl = "mongodb+srv://karulation:011763@Az@nao.vp2si.mongodb.net/?retryWrites=true&w=majority&appName=Nao"
 global.APIs = { // API Prefix
 	// name: 'https://website'
 	nrtm: 'https://nurutomo.herokuapp.com',
@@ -27,7 +28,6 @@ global.APIKeys = { // APIKey Here
 
 global.wait = '_Processing, please wait..._....'
 global.eror = 'ERROR! Please report to Karu'
-
 
 global.multiplier = 69 // The higher, The harder levelup
 

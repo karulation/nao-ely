@@ -27,7 +27,7 @@ let handler = async (m, { conn }) => {
 	let old = performance.now()
 	let neww = performance.now()
 	let speed = neww - old
-	let txt = `Kecepatan Respon ${speed.toFixed(4)} detik\n\n`
+	let txt = `Respond speed ${speed.toFixed(4)} seconds\n\n`
 	txt += `Runtime :\n*${runtime(process.uptime())}*\n`
 	txt += `OS Uptime :\n*${runtime(os.uptime())}*\n\n`
 	txt += `💬 Status :\n- *${groupsIn.length < groups.length ? groups.length : groupsIn.length}* Group Chats\n`
