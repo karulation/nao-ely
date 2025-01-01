@@ -13,10 +13,16 @@ export async function before(m, { conn, text, participants }) {
 
     // List of bad words
     const badWords = [
-        'hentai', 'bdsm', 'boobs', 'oppai', 'manko', 'pussy', 'yaoi', 'dick', 'konek',
-        'penis', 'fuck', 'thighs', 'ahegao', 'bokep', 'lesbian', 'geyh', 'gei', 'kiss', 'thigh',
-        'ketek', 'armpit', 'pedo', 'seggs', 'segs', 'blowjob', 'nigga', 'keling', 'gay',
-    ];
+'hentai', 'bdsm', 'boobs', 'oppai', 'manko', 'pussy', 'yaoi', 'dick', 'konek',
+
+        'penis', 'fuck', 'thighs', 'ahegao', 'bokep', 'lesbian', 'geyh', 'gei',
+
+        'ketek', 'armpit', 'pedo', 'seggs', 'segs', 'blowjob', 'nigga', 'keling',
+        'gay', 'bitch', 'fellatio', 'masturbate', 'orgy', 'handjob', 'anus', 'futanari',
+        'kontol', 'fap', 'fapping', 'ejaculated' 'ejaculation', 'nakadanshi' 'himedanshi',
+        'fujoshi', 'ecchi', 'incest', 'siscon', 'brocon' , 'nigger', 'cum', 'whore',
+        'jizz', 'porn', 'creampie'
+];
 
     // Helper function to check if a string only contains emojis or is empty
     const isOnlyEmoteOrEmpty = (text) => {
