@@ -13,13 +13,13 @@ export async function before(m, { conn, text, participants }) {
 
     // List of bad words
     const badWords = [
-    'hentai', 'bdsm', 'boobs', 'oppai', 'manko', 'pussy', 'yaoi', 'dick', 'konek',
-    'penis', 'fuck', 'thighs', 'ahegao', 'bokep', 'lesbian', 'geyh', 'gei',
-    'ketek', 'armpit', 'pedo', 'seggs', 'segs', 'blowjob', 'nigga', 'keling',
-    'gay', 'bitch', 'fellatio', 'masturbate', 'orgy', 'handjob', 'anus', 'futanari',
-    'kontol', 'fap', 'fapping', 'ejaculated', 'ejaculation', 'nakadanshi', 'himedanshi',
-    'fujoshi', 'ecchi', 'incest', 'siscon', 'brocon', 'nigger', 'cum', 'whore',
-    'jizz', 'porn', 'creampie'
+    'hentai', 'bdsm', 'boobs', 'oppai', 'manko', 'pussy', 
+    'yaoi', 'dick', 'konek', 'penis', 'fuck', 'thighs', 'ahegao', 'bokep', 'lesbian', 
+    'geyh', 'gei', 'ketek', 'armpit', 'pedo', 'seggs', 'segs', 'blowjob', 'nigga', 
+    'keling', 'gay', 'bitch', 'fellatio', 'masturbate', 'orgy', 'handjob', 'anus', 
+    'futanari', 'kontol', 'fap', 'fapping', 'ejaculated', 'ejaculation', 'nakadanshi', 
+    'himedanshi', 'fujoshi', 'ecchi', 'incest', 'nigger', 'cum', 
+    'whore', 'jizz', 'porn', 'creampie', 'nenen', 'squirt', 'ching chong'
 ];
 
 
