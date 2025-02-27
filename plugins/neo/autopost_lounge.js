@@ -11,9 +11,13 @@ export async function before(m, { conn, text, participants }) {
         if (!text || text.trim() === '') {
             return true; // Empty message
         }
-        const emojiRegex = /^(\p{Emoji_Presentation}|\p{Extended_Pictographic}|\p{Emoji}\uFE0F)+$/u;
+
+        // More robust emoji regex (detects skin tones, gender variants, and newer emojis)
+        const emojiRegex = /^(\p{Extended_Pictographic}|\p{Emoji}|\p{Emoji_Component}|\p{Emoji_Modifier}|\p{Emoji_Modifier_Base}|\p{Emoji_Presentation})+$/u;
+
         return emojiRegex.test(text.trim());
     };
+
 
     let q = m.quoted ? m.quoted : m;
     let mime = (q.msg || q).mimetype || q.mediaType || '';
@@ -25,7 +29,7 @@ export async function before(m, { conn, text, participants }) {
     }
 
     if (m.chat === groupID) {
-	console.log('Lounge message');
+        console.log('Lounge message');
         let senderUsername = m.sender.split('@')[0];
         let textMessage = `${m.text}\n-by @${senderUsername}\n\n_Join for more:_ https://chat.whatsapp.com/GEPZmqMPDthAAUzn0LMygx`;
         let mentions = [m.sender];
@@ -64,8 +68,8 @@ export async function before(m, { conn, text, participants }) {
 // Function to check for gaming keywords
 function isGamingMessage(text) {
     const gamingKeywords = [
-        'wild rift', 'mobile legends', 'league of legends', 'dota', 'pubg', 'fortnite', 
-        'apex legends', 'valorant', 'honkai', 'wuthering waves', 'blue archive', 
+        'wild rift', 'mobile legends', 'league of legends', 'dota', 'pubg', 'fortnite',
+        'apex legends', 'valorant', 'honkai', 'wuthering waves', 'blue archive',
         'star rail', 'genshin', 'call of duty', 'epic games', 'riot games', 'mihoyo', 'esports',
         'menang', 't1', 'win', 'league'
     ];

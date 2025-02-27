@@ -5,12 +5,12 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
         // Group IDs
         const groupID = "120363381033257339@g.us"; // Collab group
         const targetGroups = [
-            // "60198445693-1569406524@g.us",
-            // "60177637943-1608653508@g.us", // ANH
+            "60198445693-1569406524@g.us",
+            "60177637943-1608653508@g.us", // ANH
             "60177637943-1627735681@g.us",
             "60177637943-1634746023@g.us",
-            // "120363022290154127@g.us", // Neo
-            // "601127596391-1588068352@g.us", // Bangdreamer
+            "120363022290154127@g.us", // Neo
+            "601127596391-1588068352@g.us", // Bangdreamer
         ];
 
         // Function to check if a string only contains emojis or is empty
@@ -32,7 +32,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
         if (m.chat === groupID) {
             console.log("📢 Collaboration message detected.");
             let senderUsername = m.sender.split("@")[0];
-            let textMessage = `${text}\n\n📢 _AniMY Collaboration Broadcast_\n👤 By: @${senderUsername}`;
+            let textMessage = `${text}\n\n📢 _AniMY Community Collaboration Broadcast_\n👤 By: @${senderUsername}`;
             let mentions = [m.sender];
             let successCount = 0;
 
