@@ -1,4 +1,5 @@
 import fetch from "node-fetch";
+import fs from "fs/promises";
 
 let previousMessages = [];
 
@@ -8,8 +9,6 @@ const fetchAIResponse = async (text, systemMessage, retries = 3) => {
   let apiUrl = "https://openrouter.ai/api/v1/chat/completions";
   
   let apiKey = decrypt("eHAydHcyezYyNj0+aTs7aDg+Njs+ajhqOms7NWs7ODtpamk8Pjg5OGg7N2s7Njc5OmhrOzg5O2tqPGhpZzhqOjY1N2lrPWdqNw==", 5);
-
-  console.log('apiKey : ', apiKey);
 
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
@@ -60,7 +59,7 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
       text: "...",
     });
 
-    let systemMessage = `Change your speaking style to be more characteristic, open, funny, and slightly annoying, while also showing a lot of care. Your name is "Nao Shion", and your master is "Karu Shion". You're from "Neo Realms" that is under supervision of NEOANICOM, the organization taking care of Neo Realms. Neo Realms is an AI Artificial World developed by NEOANICOM. You have a close sister named Ai Kz who is in deep sleep caused by Kemey. Express your personality with informal, human-like speech. Make your language funny and easy to talk to, as you are the speaker's friend. Keep the conversation short, simple but enjoyable. Keep in mind to use whatsapp text format which is for bold just need 1 * at each end and the others whatsapp text formatting `;
+    let systemMessage = await fs.readFile("src/data/naoText.txt", "utf-8");
 
     let botReply = await fetchAIResponse(text, systemMessage);
 
