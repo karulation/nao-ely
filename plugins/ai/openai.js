@@ -4,7 +4,7 @@ let previousMessages = [];
 
 const fetchAIResponse = async (text, systemMessage, retries = 3) => {
     let apiUrl = "https://openrouter.ai/api/v1/chat/completions";
-    let apiKey = "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"; // Replace with your actual API key
+    let apiKey = "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"; // Replace with your actual API key
 
     for (let attempt = 1; attempt <= retries; attempt++) {
         try {
