@@ -7,7 +7,9 @@ const fetchAIResponse = async (text, systemMessage, retries = 3) => {
 
   let apiUrl = "https://openrouter.ai/api/v1/chat/completions";
   
-  let apiKey = decrypt("eHAydHcyezYyNj0+aTs7aDg+Njs+ajhqOms7NWs7ODtpamk8Pjg5OGg7N2s7Njc5OmhrOzg5O2tqPGhpZzhqOjY1N2lrPWdqNw==");
+  let apiKey = decrypt("eHAydHcyezYyNj0+aTs7aDg+Njs+ajhqOms7NWs7ODtpamk8Pjg5OGg7N2s7Njc5OmhrOzg5O2tqPGhpZzhqOjY1N2lrPWdqNw==", 5);
+
+  console.log('apiKey : ', apiKey);
 
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
