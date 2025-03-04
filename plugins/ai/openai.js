@@ -19,7 +19,7 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
         let greetingMessage = `Hey you, how are you today? Nao is here to listen to you. Tell me what's on your mind or how you're feeling. Don't hesitate to share with Nao. I'm ready to listen and help as much as I can. 🌟`;
 
         let apiUrl = "https://openrouter.ai/api/v1/chat/completions";
-        let apiKey = "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"; // Replace with your actual OpenRouter API key
+        let apiKey = "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"; // Replace with your actual OpenRouter API key
 
         let response = await fetch(apiUrl, {
             method: "POST",
