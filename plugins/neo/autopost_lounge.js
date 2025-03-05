@@ -53,10 +53,17 @@ export async function before(m, { conn, text, participants }) {
                     let media = await q.download?.();
                     await conn.sendFile(nonGamingGroup, media, '', textMessage, null, false, { mentions });
                 }
+                for (const gamingGroup of gamingGroups) {
+                    let media = await q.download?.();
+                    await conn.sendFile(gamingGroup, media, '', textMessage, null, false, { mentions });
+                }
             } else {
                 // General text message
                 for (const nonGamingGroup of nonGamingGroups) {
                     await conn.reply(nonGamingGroup, textMessage, null, { mentions });
+                }
+                for (const gamingGroup of gamingGroups) {
+                    await conn.reply(gamingGroup, textMessage, null, { mentions });
                 }
             }
         }

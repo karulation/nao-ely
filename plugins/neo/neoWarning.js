@@ -48,12 +48,12 @@ export async function before(m, { conn, text, participants }) {
         const senderUsername = m.sender.split('@')[0];
         
         // Warn the sender in the current group chat
-        await conn.reply(m.chat, `!! Warning: @${senderUsername}, it seems like you're not behaving properly. An admin will come and check on you`, null, {
-            mentions: [m.sender]
-        });
+        // await conn.reply(m.chat, `!! Warning: @${senderUsername}, it seems like you're not behaving properly. An admin will come and check on you`, null, {
+        //     mentions: [m.sender]
+        // });
 
         // Notify the HQ group about the bad word usage
-        const notificationMessage = `!! Bad language detected from @${senderUsername} in group *${group.name}*. Admin please check the group and warning them!\n\n*@${senderUsername} :* \n${m.text}`;
+        const notificationMessage = `!! Bad language detected from @${senderUsername} in group *${group.name}*. Admin please check the group and warning them!\n\n*@${senderUsername} (${group.name}) :* \n${m.text}`;
         await conn.reply(neoHQ, notificationMessage, null, {
             mentions: [m.sender]
         });
