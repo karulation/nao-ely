@@ -13,7 +13,7 @@ export async function before(m, { conn, text, participants }) {
 
     // List of bad words
     const badWords = [
-    'hentai', 'bdsm', 'boobs', 'oppai', 'manko', 'pussy', 
+    'hentai', 'bdsm', 'boobs', 'oppai', 'manko', 'pussy', 'bodo' ,'bodoh',
     'yaoi', 'dick', 'konek', 'penis', 'fuck', 'thighs', 'ahegao', 'bokep', 'lesbian', 
     'geyh', 'gei', 'ketek', 'armpit', 'pedo', 'seggs', 'segs', 'blowjob', 'nigga', 
     'keling', 'gay', 'bitch', 'fellatio', 'masturbate', 'orgy', 'handjob', 'anus', 
@@ -54,9 +54,8 @@ export async function before(m, { conn, text, participants }) {
 
         // Notify the HQ group about the bad word usage
         const notificationMessage = `!! Bad language detected from @${senderUsername} in group *${group.name}*. Admin please check the group and warning them!\n\n*@${senderUsername} (${group.name}) :* \n${m.text}`;
-        await conn.reply(neoHQ, notificationMessage, null, {
-            mentions: [m.sender]
-        });
+        await conn.reply(neoHQ, notificationMessage, null, { mentions: participants.map(a => a.id) })
+
 
         return true; // Stop further processing if a bad word is detected
     }
