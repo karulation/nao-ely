@@ -59,7 +59,11 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
       text: "...",
     });
 
-    let systemMessage = await fs.readFile("src/data/naoText.txt", "utf-8");
+    var systemMessage = await fs.readFile("src/data/naoText.txt", "utf-8");
+
+    var senderIdentifier = `\n\nThis asked by ${m.pushName}`;
+
+    systemMessage = `${systemMessage}${senderIdentifier}`
 
     let botReply = await fetchAIResponse(text, systemMessage);
 
@@ -80,7 +84,7 @@ handler.help = ['ai <text>'];
 handler.tags = ['aimenu'];
 handler.command = /^(ai)$/i;
 
-handler.premium = true;
-handler.limit = true;
+handler.premium = false;
+handler.limit = false;
 
 export default handler;
