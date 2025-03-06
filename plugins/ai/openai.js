@@ -4,11 +4,18 @@ import fs from "fs/promises";
 let previousMessages = [];
 
 const fetchAIResponse = async (text, systemMessage, retries = 3) => {
-  const decrypt = (t, k) => atob(t).split('').map(c => String.fromCharCode(c.charCodeAt(0) - k)).join('');
+  const decrypt = (t, k) =>
+    atob(t)
+      .split("")
+      .map((c) => String.fromCharCode(c.charCodeAt(0) - k))
+      .join("");
 
   let apiUrl = "https://openrouter.ai/api/v1/chat/completions";
-  
-  let apiKey = decrypt("eHAydHcyezYyNj0+aTs7aDg+Njs+ajhqOms7NWs7ODtpamk8Pjg5OGg7N2s7Njc5OmhrOzg5O2tqPGhpZzhqOjY1N2lrPWdqNw==", 5);
+
+  let apiKey = decrypt(
+    "eHAydHcyezYyNj0+aTs7aDg+Njs+ajhqOms7NWs7ODtpamk8Pjg5OGg7N2s7Njc5OmhrOzg5O2tqPGhpZzhqOjY1N2lrPWdqNw==",
+    5
+  );
 
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
@@ -16,7 +23,7 @@ const fetchAIResponse = async (text, systemMessage, retries = 3) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${apiKey}`,
+          Authorization: `Bearer ${apiKey}`,
           "HTTP-Referer": "<YOUR_SITE_URL>", // Optional: Replace with your site URL
           "X-Title": "<YOUR_SITE_NAME>", // Optional: Replace with your site name
         },
@@ -24,8 +31,8 @@ const fetchAIResponse = async (text, systemMessage, retries = 3) => {
           model: "deepseek/deepseek-r1:free",
           messages: [
             { role: "system", content: systemMessage },
-            { role: "user", content: text }
-          ]
+            { role: "user", content: text },
+          ],
         }),
       });
 
@@ -60,12 +67,12 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
     });
 
     var systemMessage = await fs.readFile("src/data/naoText.txt", "utf-8");
-    
-    const group = neoGroups.find(g => g.id === m.chat);
 
-    var senderIdentifier = `\n\nThis message send by "${m.pushName}" from WhatsApp group "${group.name}"`;
+    const group = (g) => g.name || g.id;
 
-    text = `${text}${senderIdentifier}`
+    var senderIdentifier = `\n\nThis message send by "${m.pushName}" from WhatsApp group "${group(m.chat)}"`;
+
+    text = `${text}${senderIdentifier}`;
 
     console.log(text);
 
@@ -84,8 +91,8 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
   }
 };
 
-handler.help = ['ai <text>'];
-handler.tags = ['aimenu'];
+handler.help = ["ai <text>"];
+handler.tags = ["aimenu"];
 handler.command = /^(ai)$/i;
 
 handler.premium = false;
