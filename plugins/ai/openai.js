@@ -63,7 +63,9 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
 
     var senderIdentifier = `\n\nThis asked by ${m.pushName}`;
 
-    systemMessage = `${systemMessage}${senderIdentifier}`
+    text = `${text}${senderIdentifier}`
+
+    console.log(text);
 
     let botReply = await fetchAIResponse(text, systemMessage);
 
