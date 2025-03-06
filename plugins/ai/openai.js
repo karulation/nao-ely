@@ -61,6 +61,8 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
 
   try {
     let name = conn.getName(m.sender);
+    let groupMetadata = m.isGroup ? await conn.groupMetadata(m.chat) : null;
+    let groupName = groupMetadata ? groupMetadata.subject : "Private Chat";
 
     let { key } = await conn.sendMessage(m.chat, {
       text: "...",
@@ -68,7 +70,7 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
 
     var systemMessage = await fs.readFile("src/data/naoText.txt", "utf-8");
 
-    var senderIdentifier = `This message send by "${m.pushName}" from WhatsApp group "${m.chat.name}\n\n"`
+    var senderIdentifier = `This message was sent by "${m.pushName}" from WhatsApp group "${groupName}"\n\n`;
 
     systemMessage = `${senderIdentifier}${systemMessage}`;
 
