@@ -60,8 +60,10 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
     });
 
     var systemMessage = await fs.readFile("src/data/naoText.txt", "utf-8");
+    
+    const group = neoGroups.find(g => g.id === m.chat);
 
-    var senderIdentifier = `\n\nThis asked by ${m.pushName}`;
+    var senderIdentifier = `\n\nThis message send by "${m.pushName}" from WhatsApp group "${group.name}"`;
 
     text = `${text}${senderIdentifier}`
 
