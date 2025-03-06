@@ -68,13 +68,11 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
 
     var systemMessage = await fs.readFile("src/data/naoText.txt", "utf-8");
 
-    const group = (g) => g.name || g.id;
+    var senderIdentifier = `This message send by "${m.pushName}" from WhatsApp group "${m.chat.name}\n\n"`
 
-    var senderIdentifier = `\n\nThis message send by "${m.pushName}" from WhatsApp group "${group(m.chat)}"`;
+    systemMessage = `${senderIdentifier}${systemMessage}`;
 
-    text = `${text}${senderIdentifier}`;
-
-    console.log(text);
+    console.log(systemMessage);
 
     let botReply = await fetchAIResponse(text, systemMessage);
 
