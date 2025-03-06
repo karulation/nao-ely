@@ -70,9 +70,9 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
 
     var systemMessage = await fs.readFile("src/data/naoText.txt", "utf-8");
 
-    var senderIdentifier = `IMPORTANT! KEEP IN MIND : This message was sent by "${m.pushName}" from WhatsApp group "${groupName}"\n\n`;
+    var senderIdentifier = `IMPORTANT! KEEP IN MIND : This message was sent by "${m.pushName}" from WhatsApp group "${groupName}"\n\nUser message that need to be reply: `;
 
-    systemMessage = `${senderIdentifier}${systemMessage}`;
+    text = `${senderIdentifier}${text}`;
 
     console.log(systemMessage);
 
