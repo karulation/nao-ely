@@ -17,7 +17,6 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
                             "Second Tier Anti Skill - Izumi\n\n" +
                             "୨⎯ Instagram Department ⎯୧\n" +
                             "Leader: Ren\n" +
-                            "- Riku Fubuki\n" +
                             "- Muisu\n" +
                             "- Son\n" +
                             "- Muichiro\n" +
