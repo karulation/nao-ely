@@ -3,7 +3,42 @@ import fetch from 'node-fetch';
 let handler = async (m, { conn, usedPrefix, command, text }) => {
     try {
         var media = 'https://telegra.ph/file/aa321d2670c88d1bc835d.jpg';
-        var textMessage = "》》》NEO TEAM《《《\n୨⎯ Neo Judgement (Management) ⎯୧\nFounder - Karu Shion\nCo-Founder - Yamato\nAdministrator - Mio\nAssistant Administrator - Kemey\nManager of Anti-Skill - Rei\n\n୨⎯ Neo Anti-Skill (WhatsApp) ⎯୧\nFirst Class Anti Skill - Rin\nFirst Class Anti Skill - Hazu\nSecond Class Anti Skill - Zen\nSecond Tier Anti Skill - Izumi\n\n୨⎯ Instagram Department ⎯୧\nLeader: Ren\n- Riku Fubuki\n- Muisu\n- Son\n- Muichiro\n\n୨⎯ Gaming Department ⎯୧\nLeader: Riezu\n- Izsyis\n- Shiroi\n\n୨⎯ Discord Department ⎯୧\nLeader: Mio\n- Edmond\n- Mentos\n\n୨⎯ Graphic Department⎯୧\nLeader: Rika Akari\n- Syaz\n- Nyom\n\n୨⎯ Rikaru Store Team ⎯୧\nOwner - Karu Shion\nPartner - Rika Akari\nAll Neo Dropshippers\n\n_For Neo Hall Of Fame, type /halloffame_";
+        var textMessage =   "》》》NEO TEAM《《《\n" +
+                            "୨⎯ Neo Judgement (Management) ⎯୧\n" +
+                            "Founder - Karu Shion\n" +
+                            "Co-Founder - Yamato\n" +
+                            "Administrator - Mio\n" +
+                            "Assistant Administrator - Kemey\n" +
+                            "Manager of Anti-Skill - Rei\n\n" +
+                            "୨⎯ Neo Anti-Skill (WhatsApp) ⎯୧\n" +
+                            "First Class Anti Skill - Rin\n" +
+                            "First Class Anti Skill - Hazu\n" +
+                            "Second Class Anti Skill - Zen\n" +
+                            "Second Tier Anti Skill - Izumi\n\n" +
+                            "୨⎯ Instagram Department ⎯୧\n" +
+                            "Leader: Ren\n" +
+                            "- Riku Fubuki\n" +
+                            "- Muisu\n" +
+                            "- Son\n" +
+                            "- Muichiro\n" +
+                            "- Akkinior\n\n" +
+                            "୨⎯ Entertainment Department ⎯୧\n" +
+                            "Leader: Riezu\n" +
+                            "- Izsyis\n" +
+                            "- Shiroi\n" +
+                            "- Lesley\n" +
+                            "- Piko\n\n" +
+                            "୨⎯ Discord Department ⎯୧\n" +
+                            "Leader: Mio\n" +
+                            "- Edmond\n" +
+                            "- Mentos\n\n" +
+                            "୨⎯ Graphic Department⎯୧\n" +
+                            "Leader: Rika Akari\n" +
+                            "- Syaz\n" +
+                            "- Nyom\n" +
+                            "- Inakusayumi \n" +
+                            "- Lesley \n\n" +
+                            "_For Neo Hall Of Fame, type /halloffame_";
         
         await conn.sendFile(m.chat, media, '', textMessage, m);
     } catch (e) {
