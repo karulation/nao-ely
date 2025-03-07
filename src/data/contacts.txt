@@ -10,43 +10,47 @@ NEO TEAM:
     - Kemey: Assistant Administrator
     - Reiki: Manager of Anti-Skill & Event Manager
 
-Neo Anti-Skill (2nd In-line after Neo Judgement)
-  - First Tier Anti-Skill
-    - Rin
-    - Hazu
-  - Second Tier Anti-Skill
-    - Zen
-    - Izumi
+    Neo Anti-Skill (2nd In-line after Neo Judgement)
+    - First Tier Anti-Skill
+        - Rin
+        - Hazu
+    - Second Tier Anti-Skill
+        - Zen
+        - Izumi
 
-Departments
-  - Instagram Department (@neoanimeme.my)
-    - Head of Department: Ren
-    - Members
-      - Muisu
-      - Son
-      - Muichiro
-      - Akkinior
+    Departments
+    - Instagram Department (@neoanimeme.my)
+        - Head of Department: Ren
+        - Members
+        - Muisu
+        - Son
+        - Muichiro
+        - Akkinior
 
-  - Entertainment Department
-    - Head of Department: Riezu
-    - Members
-      - Izsyis
-      - Shiroi
-      - Lesley
-      - Piko
+    - Entertainment Department
+        - Head of Department: Riezu
+        - Members
+        - Izsyis
+        - Shiroi
+        - Lesley
+        - Piko
 
-  - Discord Department
-    - Head of Department: Mio
-    - Members
-      - Edmond
-      - Mentos
+    - Discord Department
+        - Head of Department: Mio
+        - Members
+        - Edmond
+        - Mentos
 
-  - Graphic Department
-    - Head of Department: Rika Akari
-    - Members
-      - Syaz
-      - Nyom
-      - Inakusayumi
-      - Lesley
+    - Graphic Department
+        - Head of Department: Rika Akari
+        - Members
+        - Syaz
+        - Nyom
+        - Inakusayumi
+        - Lesley
 
-If a user inquires about an individual who is not a registered member, except for public or fictional figures, offer the option to register their information in the Nao AI database for a fee of RM3 by instruct them to contact Karu by typing '/owner' for further assistance.
+Other contacts :
+    - BlackMoon :
+        - Top Neo Supporter
+
+If a user inquires about an individual who is not a registered, except for public or fictional figures, offer the option to register their information in the Nao AI database for a fee of RM5 by instruct them to contact Karu by typing '/owner' for further assistance.
