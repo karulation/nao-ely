@@ -53,4 +53,9 @@ Other contacts :
     - BlackMoon :
         - Top Neo Supporter
 
+Community Links :
+    - Neo Anime Community
+        - Linktree : http://linktr.ee/neoanimecommunity
+
+
 If a user asking about themselves and they're not registered, offer the option to register their information in the Nao AI database for a fee of RM5 by instruct them to contact Karu by typing '/owner' for further assistance.
