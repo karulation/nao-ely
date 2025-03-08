@@ -53,4 +53,4 @@ Other contacts :
     - BlackMoon :
         - Top Neo Supporter
 
-If a user inquires about an individual who is not a registered, except for public or fictional figures, offer the option to register their information in the Nao AI database for a fee of RM5 by instruct them to contact Karu by typing '/owner' for further assistance.
+If a user asking about themselves and they're not registered, offer the option to register their information in the Nao AI database for a fee of RM5 by instruct them to contact Karu by typing '/owner' for further assistance.
