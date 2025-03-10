@@ -13,15 +13,16 @@ export async function before(m, { conn, text, participants }) {
 
     // List of bad words
     const badWords = [
-    'hentai', 'bdsm', 'boobs', 'oppai', 'manko', 'pussy', 'bodo' ,'bodoh',
-    'yaoi', 'dick', 'konek', 'penis', 'fuck', 'thighs', 'ahegao', 'bokep', 'lesbian', 
-    'geyh', 'gei', 'ketek', 'armpit', 'pedo', 'seggs', 'segs', 'blowjob', 'nigga', 
-    'keling', 'gay', 'bitch', 'fellatio', 'masturbate', 'orgy', 'handjob', 'anus', 
-    'futanari', 'kontol', 'fap', 'fapping', 'ejaculated', 'ejaculation', 'nakadanshi', 
-    'himedanshi', 'fujoshi', 'ecchi', 'incest', 'nigger', 'cum', 
-    'whore', 'jizz', 'porn', 'creampie', 'nenen', 'squirt', 'ching chong'
-];
-
+        'hentai', 'bdsm', 'boobs', 'oppai', 'manko', 'pussy', 'bodo', 'bodoh', 'hentai',
+        'yaoi', 'dick', 'konek', 'penis', 'fuck', 'thighs', 'ahegao', 'bokep', 'lesbian',
+        'geyh', 'gei', 'gae', 'ketek', 'armpit', 'pedo', 'seggs', 'segs', 'blowjob', 'nigga',
+        'keling', 'gay', 'bitch', 'fellatio', 'masturbate', 'orgy', 'handjob', 'anus',
+        'futanari', 'kontol', 'fap', 'fapping', 'ejaculated', 'ejaculation', 'nakadanshi',
+        'himedanshi', 'fujoshi', 'ecchi', 'incest', 'nigger', 'cum', 'yuri',
+        'whore', 'jizz', 'porn', 'creampie', 'nenen', 'squirt', 'ching chong',
+        'nekopoi', 'nhentai', 'hanime', 'hentaihaven', 'watchhentai', 'hentaicity', 'hentaianime', 'hentaifox',
+        'pornhub', 'xhamster', 'redtube', 'youporn', 'xnxx', 'xvideos', 'noodlemagazine', 'mat6tube', 'exporn', 'rule34', 'onlyfans', 'e-hentai', '3hentai', 'hentai18'
+    ];
 
     // Helper function to check if a string only contains emojis or is empty
     const isOnlyEmoteOrEmpty = (text) => {
@@ -44,17 +45,14 @@ export async function before(m, { conn, text, participants }) {
     const group = neoGroups.find(g => g.id === m.chat);
 
     // Check if the message is from a Neo group and contains bad words
-    if (group && detectBadWords(m.text, badWords)) {
+    const detectedWord = detectBadWords(m.text, badWords);
+    if (group && detectedWord) {
         const senderUsername = m.sender.split('@')[0];
-        // Warn the sender in the current group chat
-        // await conn.reply(m.chat, `!! Warning: @${senderUsername}, it seems like you're not behaving properly. An admin will come and check on you`, null, {
-        //     mentions: [m.sender]
-        // });
 
         // Notify the HQ group about the bad word usage
-        const notificationMessage = `!! Bad language detected from @${senderUsername} in group *${group.name}*. Admin please check the group and warning them!\n\n*@${senderUsername} (${group.name}) :* \n${m.text}`;
-        await conn.reply(neoHQ, notificationMessage, null, { mentions: participants.map(a => a.id) });
+        const notificationMessage = `⚠️ *Bad language detected!* ⚠️\n\n🔹 *User:* @${senderUsername}\n🔹 *Group:* ${group.name}\n🔹 *Offensive Word:* "${detectedWord}"\n\n🚨 Admin, please check and warn the user.\n\n📩 *Message:* \n${m.text}`;
 
+        await conn.reply(neoHQ, notificationMessage, null, { mentions: participants.map(a => a.id) });
 
         return true; // Stop further processing if a bad word is detected
     }
@@ -62,13 +60,14 @@ export async function before(m, { conn, text, participants }) {
     return true;
 }
 
-// Function to check for bad words
+// Function to check for bad words and return the matched word
 function detectBadWords(text, badWords) {
     const lowerText = text.toLowerCase();
-    return badWords.some(word => {
-        // Create a regular expression to match the whole word
+    for (const word of badWords) {
         const regex = new RegExp(`\\b${word}\\b`, 'i');
-        return regex.test(lowerText);
-    });
+        if (regex.test(lowerText)) {
+            return word; // Return the detected bad word
+        }
+    }
+    return null; // No bad word found
 }
-
