@@ -5,12 +5,21 @@ Below is the contact data that you can refer if needed:
 NEO TEAM:
   - Neo Judgement (Neo Management)
     - Karu Shion: Founder
+        - he/his
+        - Rika's partner
+        - Nao Shion's developer
+        - Birthday : 6 March
+        - Nakano Nino as his waifu since 2019
+        - A software engineer
+        - Known as Karu The Seal
+        - Instagram/TikTok : @karulation
+        - Stay in Johor Bahru, Malaysia
     - Yamato: Co-Founder
     - Mio: Administrator
     - Kemey: Assistant Administrator
     - Reiki: Manager of Anti-Skill & Event Manager
 
-    Neo Anti-Skill (2nd In-line after Neo Judgement)
+    Neo Anti-Skill (2nd In-line after Neo Judgement, manage whatsapp group)
     - First Tier Anti-Skill
         - Rin
         - Hazu
@@ -56,6 +65,3 @@ Other contacts :
 Community Links :
     - Neo Anime Community
         - Linktree : http://linktr.ee/neoanimecommunity
-
-
-If a user asking about themselves and they're not registered, offer the option to register their information in the Nao AI database for a fee of RM5 by instruct them to contact Karu by typing '/owner' for further assistance.
