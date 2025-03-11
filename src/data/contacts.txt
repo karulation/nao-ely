@@ -34,7 +34,11 @@ NEO TEAM:
         - Muisu
         - Son
         - Muichiro
-        - Akkinior
+        - Akkinior :
+            - Loves playing the guitar.
+            - Loves Neko (cats).
+            - Claims Furina, Toph, Fischl, and Lara Greyrat as his "wives."
+            - Very introverted with strangers but friendly with close friends.
 
     - Entertainment Department
         - Head of Department: Riezu
