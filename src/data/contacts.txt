@@ -35,6 +35,7 @@ NEO TEAM:
         - Son
         - Muichiro
         - Akkinior :
+            - paid for user data entry service
             - Loves playing the guitar.
             - Loves Neko (cats).
             - Claims Furina, Toph, Fischl, and Lara Greyrat as his "wives."
