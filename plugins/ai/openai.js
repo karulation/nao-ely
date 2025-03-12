@@ -70,7 +70,7 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
 
     var systemMessage = await fs.readFile("src/data/naoText.txt", "utf-8");
     var contactsText = await fs.readFile("src/data/contacts.txt", "utf-8");
-    var naoService = await fs.readFile("src/data/naoService.txt", "utf-8");
+    var naoDetail = await fs.readFile("src/data/naoDetail.txt", "utf-8");
 
     var senderIdentifier = `IMPORTANT! KEEP IN MIND : This message was sent by "${m.pushName}" from WhatsApp group "${groupName}"\n\nUser message that need to be reply: `;
 
@@ -78,7 +78,7 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
 
     console.log(systemMessage);
 
-    let botReply = await fetchAIResponse(text, systemMessage + contactsText + naoService);
+    let botReply = await fetchAIResponse(text, systemMessage + contactsText + naoDetail);
 
     await conn.sendMessage(m.chat, {
       text: botReply,
