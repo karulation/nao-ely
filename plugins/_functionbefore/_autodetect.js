@@ -149,7 +149,11 @@ export async function before(m) {
 				: chat.sBye || this.bye || Connection.conn.bye || "Bye, @user!"
 		).replace("@user", "@" + user.split("@")[0]);
 		if (neoGroups.find((group) => group.id === m.chat)) {
-			text = getAiWelcome(m);
+			try {
+				text = getAiWelcome(m, neoGroups);
+			} catch (error) {
+				console.error(error);
+			}
 		}
 		try {
 			const can = await (await import("canvafy")).default;
@@ -189,6 +193,8 @@ async function getAiWelcome(m) {
 
 	const userInput = `username : ${username} \ngroup : ${group.name}`;
 	const systemMessage = await fs.readFile("src/data/naoWelcome.txt", "utf-8");
+
+	console.log(userInput, systemMessage);
 
 	return await fetchAIResponse(userInput, systemMessage);
 }
