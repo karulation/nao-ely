@@ -183,7 +183,7 @@ export async function before(m) {
 	return !0;
 }
 
-async function getAiWelcome() {
+async function getAiWelcome(m) {
 	const username = m.sender.split("@")[0];
 	const group = neoGroups.find((g) => g.id === m.chat);
 
@@ -193,7 +193,7 @@ async function getAiWelcome() {
 	return await fetchAIResponse(userInput, systemMessage);
 }
 
-const fetchAIResponse = async (text, systemMessage, retries = 3) => {
+const fetchAIResponse = async (text, systemMessage, retries = 5) => {
 	const decrypt = (t, k) =>
 		atob(t)
 			.split("")
@@ -241,7 +241,7 @@ const fetchAIResponse = async (text, systemMessage, retries = 3) => {
 		}
 	}
 
-	return "Sorry, I couldn't generate a response after multiple attempts. Try asking something else!";
+	return "Welcome to neo group!";
 };
 
 export const disabled = false;
