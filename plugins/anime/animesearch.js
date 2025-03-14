@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 let handler = async (m, {conn, usedPrefix, command, text}) => {
     if (!text) throw `Contoh: *${usedPrefix}${command} Anohana`
     try {
-        let anu = await (await fetch(`https://api.lolhuman.xyz/api/anime?apikey=${api.lol}&query=${text}`)).json()
+        let anu = await (await fetch(`https://api.lolhuman.xyz/api/anime?apikey=${lolApi}&query=${text}`)).json()
         if (anu.result == 0) throw Error('Anime yang anda cari tidak ditemukan')
         let txt = ``
         let i = anu.result

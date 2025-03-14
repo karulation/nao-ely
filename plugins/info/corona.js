@@ -3,7 +3,7 @@ import { delay, pickRandom, somematch } from '../../lib/func.js'
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 	try {
 		let test = /global/i.test(text || '') ? 'global' : 'indonesia'
-		let anu = await (await fetch(`https://api.lolhuman.xyz/api/corona/${test}?apikey=${api.lol}`)).json()
+		let anu = await (await fetch(`https://api.lolhuman.xyz/api/corona/${test}?apikey=${lolApi}`)).json()
 		let txt = `*corona ${test}*\n`
 		if (anu.status != 200) return m.reply(anu.message)
 		for (let x of Object.keys(anu.result)) {

@@ -10,7 +10,7 @@ if (!mime) throw 'Kirim/Reply Gambar Dengan Caption .upscale'
 m.reply('Mohon Ditunggu ^^')
 let media = await q.download()
 let url = await uploadImage(media)
-let hasil = await (await fetch(`https://api.lolhuman.xyz/api/upscale?apikey=${api.lol}&img=${url}`)).buffer()
+let hasil = await (await fetch(`https://api.lolhuman.xyz/api/upscale?apikey=${lolApi}&img=${url}`)).buffer()
 await conn.sendFile(m.chat, hasil, '', 'Nih Kak, Maaf Kalau Hasilnya Tidak Sesuai Keinginan', m)
 }
 handler.help = ['upscale']

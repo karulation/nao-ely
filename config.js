@@ -5,26 +5,8 @@ import { fileURLToPath } from 'url'
 // Real Owner moved to db.data.datas.rowner
 global.mods = ['60177637943'] // Developer / Mods Number
 global.dbUrl = "mongodb+srv://karulation:011763@Az@nao.vp2si.mongodb.net/?retryWrites=true&w=majority&appName=Nao"
-global.APIs = { // API Prefix
-	// name: 'https://website'
-	nrtm: 'https://nurutomo.herokuapp.com',
-	bg: 'http://bochil.ddns.net',
-	xteam: 'https://api.xteam.xyz',
-	zahir: 'https://zahirr-web.herokuapp.com',
-	zeks: 'https://api.zeks.xyz',
-	pencarikode: 'https://pencarikode.xyz',
-	LeysCoder: 'https://leyscoders-api.herokuapp.com',
-	lol: 'https://api.lolhuman.xyz'
-}
-global.APIKeys = { // APIKey Here
-	// 'https://website': 'apikey'
-	'https://api.xteam.xyz': 'd90a9e986e18778b',
-	'https://zahirr-web.herokuapp.com': 'zahirgans',
-	'https://api.zeks.xyz': 'apivinz',
-	'https://pencarikode.xyz': 'pais',
-	'https://leyscoders-api.herokuapp.com': 'dappakntlll',
-	'https://api.lolhuman.xyz': 'apikeylu'
-}
+
+global.lolApi = '0333e2ca0add6ecb92ca7eac';
 
 global.wait = '_Processing, please wait..._....'
 global.eror = 'ERROR! Please report to Karu'

@@ -4,7 +4,7 @@ let handler = async (m, { conn, usedPrefix, args, command, text }) => {
   if (!text) throw `Linknya?\nExample: *${usedPrefix}${command} https://www.instagram.com/reel/CsC2PQCNgM1/?igshid=NTc4MTIwNjQ2YQ==*`
   m.reply(wait)
   try {
-    let anu = await (await fetch(`https://api.lolhuman.xyz/api/instagram?apikey=${api.lol}&url=${text}`)).json()
+    let anu = await (await fetch(`https://api.lolhuman.xyz/api/instagram?apikey=${lolApi}&url=${text}`)).json()
     let cap = `_Nih Kak Videonya >,<_`
 
     for (let i of anu.result) {

@@ -50,7 +50,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 			} catch (e) {
 				console.log(e)
 				try {
-					let anu = await (await fetch(`https://api.lolhuman.xyz/api/ytvideo2?apikey=${api.lol}&url=${text[0]}}`)).json()
+					let anu = await (await fetch(`https://api.lolhuman.xyz/api/ytvideo2?apikey=${lolApi}&url=${text[0]}}`)).json()
 					await conn.sendFile(m.chat, anu.result.link, `${anu.result.title}.mp4`, txt, m)
 				} catch (e) {
 					console.log(e)

@@ -7,7 +7,7 @@
 // 		try {
 // 			let img = await q.download?.()
 // 			let out = await uploadImage(img)
-// 			let res = await fetch(`https://api.lolhuman.xyz/api/nsfwcheck?apikey=${api.lol}&img=${out}`)
+// 			let res = await fetch(`https://api.lolhuman.xyz/api/nsfwcheck?apikey=${lolApi}&img=${out}`)
 // 			let json = await res.json()
 // 			if (json.status != '200') throw `Feature Error!`
 // 			let get_result = json.result

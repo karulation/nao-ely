@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 let handler = async (m, {conn, usedPrefix, args, command, text}) => {
     if (!text) throw `Daerah mana yang mau dicek?\n contoh: *${usedPrefix}${command} weleri*`
     try {
-        let anu = await (await fetch(`https://api.lolhuman.xyz/api/cuaca/${text}?apikey=${api.lol}`)).json()
+        let anu = await (await fetch(`https://api.lolhuman.xyz/api/cuaca/${text}?apikey=${lolApi}`)).json()
         if (anu.result == 0) throw Error('Daerah yang dicari tidak ditemukan')
         let i = anu.result
         let txt = '*Hasil Prakiraan Cuaca*'

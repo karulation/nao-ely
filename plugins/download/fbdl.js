@@ -4,7 +4,7 @@ let handler = async (m, { conn, usedPrefix, command, text}) => {
     if (!text) throw `Linknya?\nExample: *${usedPrefix}${command} https://web.facebook.com/watch/?v=892725951575913*`
     m.reply(wait)
     try {
-        let anu = await (await fetch(`https://api.lolhuman.xyz/api/facebook?apikey=${api.lol}&url=${text}`)).json()
+        let anu = await (await fetch(`https://api.lolhuman.xyz/api/facebook?apikey=${lolApi}&url=${text}`)).json()
 
         for (let i of anu.result) {
             await conn.sendMsg(m.chat, { video: {url: i } }, {quoted: m})

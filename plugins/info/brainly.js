@@ -23,7 +23,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 		await m.reply(txt.replace(/(<([^>]+)>)/ig, ''))
 	} catch (e) {
 		try {
-			let anu = await (await fetch(`https://api.lolhuman.xyz/api/brainly?apikey=${api.lol}&query=${text}`)).json()
+			let anu = await (await fetch(`https://api.lolhuman.xyz/api/brainly?apikey=${lolApi}&query=${text}`)).json()
 			if (anu.status != 200) return m.reply('no ingfo')
 			let txt = ''
 			for (let x of anu.result) {

@@ -10,7 +10,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
     m.reply('Mohon Ditunggu ^^')
     let media = await q.download()
     let url = await uploadImage(media)
-    let res = await (await fetch(`https://api.lolhuman.xyz/api/musicsearch?apikey=${api.lol}&file=${url}`)).json()
+    let res = await (await fetch(`https://api.lolhuman.xyz/api/musicsearch?apikey=${lolApi}&file=${url}`)).json()
     let i = res.result
     let txt = `Title: ${i.title}\n`
     txt += `Album: ${i.album}\n`

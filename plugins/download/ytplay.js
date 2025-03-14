@@ -1,104 +1,80 @@
-import ytdl from 'ytdl-core'
-import yts from 'yt-search'
-import { youtubeSearch, youtubedl } from '@bochilteam/scraper-sosmed'
-import { somematch, isUrl, niceBytes } from '../../lib/func.js'
-import fetch from 'node-fetch'
+import fetch from "node-fetch";
 
-let handler = async (m, { conn, text, args, usedPrefix, command }) => {
-	if (!text) throw `Example: ${usedPrefix + command} Sia Unstopable`
-	let url = ''
-	if (isUrl(text)) {
-		url = text
-		try {
-			let anu = await yts({ videoId: await ytdl.getURLVideoID(url) })
-			let txt = `📌 *${anu.title}*\n\n`
-				+ `🪶 *Author :* ${anu.author.name}\n`
-				+ `⏲️ *Published :* ${anu.ago}\n`
-				+ `⌚ *Duration :* ${anu.duration.timestamp}\n`
-				+ `👁️ *Views :* ${anu.views}\n`
-				+ `🌀 *Url :* ${url}`
-			await conn.sendMsg(m.chat, { image: { url: anu.thumbnail }, caption: txt }, { quoted: m })
-		} catch (e) {
-			console.log(e)
-			try {
-				let anu = await youtubeSearch(url)
-				anu = anu.video[0]
-				let txt = `📌 *${anu.title}*\n\n`
-					+ `🪶 *Author :* ${anu.authorName}\n`
-					+ `⏲️ *Published :* ${anu.publishedTime}\n`
-					+ `⌚ *Duration :* ${anu.durationH}\n`
-					+ `👁️ *Views :* ${anu.viewH}\n`
-					+ `🌀 *Url :* ${anu.url}`
-				await conn.sendMsg(m.chat, { image: { url: anu.thumbnail.split("?")[0] }, caption: txt }, { quoted: m })
-			} catch (e) {
-				console.log(e)
-				return m.reply('invalid url')
-			}
-		}
-	} else {
-		try {
-			let anu = await yts(text)
-			anu = anu.all[0]
-			url = anu.url
-			let txt = `📌 *${anu.title}*\n\n`
-				+ `🪶 *Author :* ${anu.author.name}\n`
-				+ `⏲️ *Published :* ${anu.ago}\n`
-				+ `${(anu.duration && anu.duration.timestamp) ? `⌚ *Duration :* ${anu.duration.timestamp}\n` : ''}`
-				+ `👁️ *Views :* ${anu.views}\n`
-				+ `🌀 *Url :* ${url}`
-			await conn.sendMsg(m.chat, { image: { url: anu.thumbnail }, caption: txt }, { quoted: m })
-		} catch (e) {
-			console.log(e)
-			try {
-				let anu = await youtubeSearch(text)
-				anu = anu.video[0]
-				url = anu.url
-				let txt = `📌 *${anu.title}*\n\n`
-					+ `🪶 *Author :* ${anu.authorName}\n`
-					+ `⏲️ *Published :* ${anu.publishedTime}\n`
-					+ `⌚ *Duration :* ${anu.durationH}\n`
-					+ `👁️ *Views :* ${anu.viewH}\n`
-					+ `🌀 *Url :* ${url}`
-				await conn.sendMsg(m.chat, { image: { url: anu.thumbnail.split("?")[0] }, caption: txt }, { quoted: m })
-			} catch (e) {
-				console.log(e)
-				return m.reply(`Tidak ditemukan hasil.`)
-			}
-		}
-	}
-	if (!url) return
-	m.reply('Proses download mp3 memerlukan beberapa menit')
-	try {
-		let res = await ytdl.getURLVideoID(url)
-		let anu = await ytdl.getInfo(res)
-		anu = anu.formats.filter(v => v.mimeType.includes('audio/mp4'))[0]
-		let size = parseInt(anu.contentLength)
-		if (size > 400000000) return m.reply(`Filesize: ${niceBytes(size)}\nTidak dapat mengirim, maksimal file 400 MB`)
-		await conn.sendMsg(m.chat, { audio: { url: anu.url }, mimetype: 'audio/mpeg' }, { quoted: m })
-	} catch (e) {
-		console.log(e)
-		try {
-			let res = await youtubedl(url)
-			let data = res.audio[Object.keys(res.audio)[0]]
-			let site = await data.download()
-			if (data.fileSize > 400000) return m.reply(`Filesize: ${data.fileSizeH}\nTidak dapat mengirim, maksimal file 400 MB`)
-			await conn.sendMsg(m.chat, { audio: { url: site }, mimetype: 'audio/mpeg' }, { quoted: m })
+let handler = async (m, { conn, text, usedPrefix, command }) => {
+    if (!text) {
+        return m.reply(`Example: ${usedPrefix + command} Sia Unstoppable`);
+    }
 
-		} catch (e) {
-			console.log(e)
-			try {
-				let anu = await (await fetch(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${api.lol}&url=${url}`)).json()
-				await conn.sendMsg(m.chat, { audio: { url: anu.result.link }, mimetype: 'audio/mpeg' }, { quoted: m })
-			} catch (e) {
-				console.log(e)
-				m.reply('Server Down')
-			}
-		}
-	}
+    let url = '';
+
+    if (isUrl(text)) {
+        url = text;
+    } else {
+        try {
+            console.log(`🔎 Searching YouTube for: ${text}`);
+            
+            if (!lolApi) {
+                throw new Error("⚠️ API Key (lolApi) is missing or undefined.");
+            }
+
+            let res = await fetch(`https://api.lolhuman.xyz/api/ytsearch?apikey=${lolApi}&query=${encodeURIComponent(text)}`);
+            let json = await res.json();
+
+            console.log("🎥 YouTube Search Response:", JSON.stringify(json, null, 2));
+
+            if (!json.result || json.result.length === 0) {
+                throw new Error("⚠️ No search results.");
+            }
+
+            url = 'https://www.youtube.com/watch?v=' + json.result[0].videoId;
+        } catch (err) {
+            console.error("⚠️ Error during YouTube search:", err);
+            return m.reply(err.message || "⚠️ No results found.");
+        }
+    }
+
+    if (!url) return m.reply("⚠️ No valid video found.");
+
+    try {
+        console.log(`🎵 Fetching audio for: ${url}`);
+
+        let res = await fetch(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${lolApi}&url=${url}`);
+        let json = await res.json();
+
+        console.log("🔊 Audio API Response:", JSON.stringify(json, null, 2));
+
+        if (!json.status || !json.result || !json.result.link) {
+            throw new Error("⚠️ API error or invalid response.");
+        }
+
+        await conn.sendMessage(m.chat, { 
+            audio: { url: json.result.link }, 
+            mimetype: 'audio/mpeg',
+            ptt: true // Send as voice message
+        }, { quoted: m });
+
+    } catch (err) {
+        console.error("⚠️ Error processing audio:", err);
+        return m.reply(err.message || "⚠️ Failed to fetch audio.");
+    }
+};
+
+// URL Validation Function
+function isUrl(str) {
+    let urlPattern = new RegExp(
+        '^(https?:\\/\\/)?' + // Protocol
+        '((([a-zA-Z0-9$-_@.&+!*\\(\\),]+)\\.[a-zA-Z]{2,})|' + // Domain name
+        'localhost|' + // Localhost
+        '(([0-9]{1,3}\\.){3}[0-9]{1,3}))' + // OR IPv4 address
+        '(\\:[0-9]{1,5})?' + // Port (optional)
+        '(\\/.*)?$', // Path (optional)
+        'i'
+    );
+    return !!urlPattern.test(str);
 }
 
-handler.menudownload = ['ytplay <teks> / <url>']
-handler.tagsdownload = ['search']
-handler.command = /^(play|(play)?yt(play|dl)?)$/i
+handler.menudownload = ['ytplay <text> / <url>'];
+handler.tagsdownload = ['search'];
+handler.command = /^(play|(play)?yt(play|dl)?)$/i;
 
-export default handler
+export default handler;

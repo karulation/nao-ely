@@ -1,6 +1,6 @@
 let handler = async (m, { conn }) => {
 	try {
-		let anu = await (await fetch(`https://api.lolhuman.xyz/api/growtopia?apikey=${api.lol}`)).json()
+		let anu = await (await fetch(`https://api.lolhuman.xyz/api/growtopia?apikey=${lolApi}`)).json()
 		if (anu.status == 200) {
 			anu = anu.result
 			let txt = `*Player Online :* ${anu.player_online}`
