@@ -7,7 +7,13 @@ global.mods = ['60177637943'] // Developer / Mods Number
 global.dbUrl = "mongodb+srv://karulation:011763@Az@nao.vp2si.mongodb.net/?retryWrites=true&w=majority&appName=Nao"
 
 global.lolApi = '0333e2ca0add6ecb92ca7eac';
-globalThis.routerapi = decrypt("eHAydHcyezYyNj0+aTs7aDg+Njs+ajhqOms7NWs7ODtpamk8Pjg5OGg7N2s7Njc5OmhrOzg5O2tqPGhpZzhqOjY1N2lrPWdqNw==", 5);
+const decrypt = (t, k) =>
+	atob(t)
+		.split("")
+		.map((c) => String.fromCharCode(c.charCodeAt(0) - k))
+		.join("");
+var tempApi = decrypt("eHAydHcyezYyNj0+aTs7aDg+Njs+ajhqOms7NWs7ODtpamk8Pjg5OGg7N2s7Njc5OmhrOzg5O2tqPGhpZzhqOjY1N2lrPWdqNw==", 5);
+globalThis.routerapi = tempApi;
 
 global.wait = '_Processing, please wait..._....'
 global.eror = 'ERROR! Please report to Karu'
@@ -184,8 +190,3 @@ watchFile(file, () => {
 	import(`${file}?update=${Date.now()}`)
 })
 
-const decrypt = (t, k) =>
-	atob(t)
-		.split("")
-		.map((c) => String.fromCharCode(c.charCodeAt(0) - k))
-		.join("");
