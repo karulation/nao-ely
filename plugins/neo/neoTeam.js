@@ -9,17 +9,17 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
                             "Co-Founder - Yamato\n" +
                             "Administrator - Mio\n" +
                             "Assistant Administrator - Kemey\n" +
-                            "Manager of Anti-Skill - Rei\n\n" +
+                            "Event Manager - Rei\n\n" +
+                            "Manager of Anti-Skill - Hazu\n\n" +
                             "୨⎯ Neo Anti-Skill (WhatsApp) ⎯୧\n" +
-                            "First Class Anti Skill - Rin\n" +
-                            "First Class Anti Skill - Hazu\n" +
-                            "Second Class Anti Skill - Zen\n" +
-                            "Second Tier Anti Skill - Izumi\n\n" +
+                            "First Tier Anti Skill - Rin\n" +
+                            "First Tier Anti Skill - Izumi\n" +
+                            "Second Tier Anti Skill - Zen\n" +
+                            "Second Tier Anti Skill - Muichiro\n" +
                             "୨⎯ Instagram Department ⎯୧\n" +
                             "Leader: Ren\n" +
                             "- Muisu\n" +
                             "- Son\n" +
-                            "- Muichiro\n" +
                             "- Akkinior\n\n" +
                             "୨⎯ Entertainment Department ⎯୧\n" +
                             "Leader: Riezu\n" +

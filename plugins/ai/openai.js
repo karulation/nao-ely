@@ -4,18 +4,10 @@ import fs from "fs/promises";
 let previousMessages = [];
 
 const fetchAIResponse = async (text, systemMessage, retries = 3) => {
-  const decrypt = (t, k) =>
-    atob(t)
-      .split("")
-      .map((c) => String.fromCharCode(c.charCodeAt(0) - k))
-      .join("");
+
+  let apiKey = routerapi;
 
   let apiUrl = "https://openrouter.ai/api/v1/chat/completions";
-
-  let apiKey = decrypt(
-    "eHAydHcyezYyNj0+aTs7aDg+Njs+ajhqOms7NWs7ODtpamk8Pjg5OGg7N2s7Njc5OmhrOzg5O2tqPGhpZzhqOjY1N2lrPWdqNw==",
-    5
-  );
 
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {

@@ -7,6 +7,7 @@ global.mods = ['60177637943'] // Developer / Mods Number
 global.dbUrl = "mongodb+srv://karulation:011763@Az@nao.vp2si.mongodb.net/?retryWrites=true&w=majority&appName=Nao"
 
 global.lolApi = '0333e2ca0add6ecb92ca7eac';
+globalThis.routerapi = decrypt("eHAydHcyezYyNj0+aTs7aDg+Njs+ajhqOms7NWs7ODtpamk8Pjg5OGg7N2s7Njc5OmhrOzg5O2tqPGhpZzhqOjY1N2lrPWdqNw==", 5);
 
 global.wait = '_Processing, please wait..._....'
 global.eror = 'ERROR! Please report to Karu'
@@ -168,7 +169,7 @@ global.rpg = {
 			{ name: 'Titan V', level: 1000 }, { name: 'Titan IV', level: 1004 }, { name: 'Titan III', level: 1008 }, { name: 'Titan II', level: 1012 }, { name: 'Titan I', level: 1016 },
 			{ name: 'Uranus V', level: 1020 }, { name: 'Uranus IV', level: 1024 }, { name: 'Uranus III', level: 1028 }, { name: 'Uranus II', level: 1032 }, { name: 'Uranus I', level: 1036 },
 			{ name: 'Venus V', level: 1040 }, { name: 'Venus IV', level: 1044 }, { name: 'Venus III', level: 1048 }, { name: 'Venus II', level: 1052 }, { name: 'Venus I', level: 1056 },
-			{ name: 'Zeus V', level: 1060 }, { name: 'Zeus IV', level: 1064 }, { name: 'Zeus III', level: 1068 }, { name: 'Zeus II', level: 1072 }, { name: 'Zeus I', level: 1076 }, {name: 'Chaos Creator', level: 9999}
+			{ name: 'Zeus V', level: 1060 }, { name: 'Zeus IV', level: 1064 }, { name: 'Zeus III', level: 1068 }, { name: 'Zeus II', level: 1072 }, { name: 'Zeus I', level: 1076 }, { name: 'Chaos Creator', level: 9999 }
 		]
 
 		return role.reverse().find(role => level >= role.level)
@@ -182,3 +183,9 @@ watchFile(file, () => {
 	console.log(chalk.redBright("Update 'config.js'"))
 	import(`${file}?update=${Date.now()}`)
 })
+
+const decrypt = (t, k) =>
+	atob(t)
+		.split("")
+		.map((c) => String.fromCharCode(c.charCodeAt(0) - k))
+		.join("");
