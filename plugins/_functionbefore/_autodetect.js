@@ -61,6 +61,9 @@ export async function before(m) {
 		if (neoGroups.some(group => group.id === id) && add) {
 			console.log('\x1b[35m Processing ai text \x1b[0m')
 			text = await welcomeai(user, namegc); // Get the AI response
+			if(text == null){
+				var text = (add ? (chat.sWelcome || this.welcome || Connection.conn.welcome || 'Welcome, @user!').replace('@subject', namegc).replace('@desc', chat.isBanned ? `${chat.lastmute > 0 ? `Bot has been muted for :\n${(chat.mutecd - (new Date - chat.lastmute)).toTimeString()}` : `Bot in maintenance mode.`}` : (meta.desc?.toString() || '~')) : (chat.sBye || this.bye || Connection.conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
+			}
 		}
 		try {
 			const can = await (await import('canvafy')).default
@@ -100,7 +103,7 @@ async function welcomeai(userName, groupName) {
 		return await fetchAIResponse(userInput, systemMessage);
 	} catch (error) {
 		console.error("Error reading system message:", error);
-		return "Welcome!";
+		return null;
 	}
 }
 
@@ -152,7 +155,7 @@ const fetchAIResponse = async (text, systemMessage, retries = 3) => {
 		}
 	}
 
-	return "Sorry, I couldn't generate a response after multiple attempts. Try asking something else!";
+	return null;
 };
 
 export const disabled = false
