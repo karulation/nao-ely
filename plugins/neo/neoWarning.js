@@ -21,7 +21,7 @@ export async function before(m, { conn, text, participants }) {
         'himedanshi', 'fujoshi', 'incest', 'nigger', 'cum', 'yuri',
         'whore', 'jizz', 'porn', 'creampie', 'nenen', 'squirt', 'ching chong',
         'nekopoi', 'nhentai', 'hanime', 'hentaihaven', 'watchhentai', 'hentaicity', 'hentaianime', 'hentaifox',
-        'pornhub', 'xhamster', 'redtube', 'youporn', 'xnxx', 'xvideos', 'noodlemagazine', 'mat6tube', 'exporn', 'rule34', 'onlyfans', 'e-hentai', '3hentai', 'hentai18'
+        'pornhub', 'xhamster', 'redtube', 'youporn', 'xnxx', 'xvideos', 'noodlemagazine', 'mat6tube', 'exporn', 'rule34', 'onlyfans', 'e-hentai', '3hentai', 'hentai18', 'boku no pico'
     ];
 
     // Helper function to check if a string only contains emojis or is empty
