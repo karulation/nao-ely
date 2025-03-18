@@ -3,8 +3,7 @@ import db from '../../lib/database.js';
 export async function before(m, { conn, text, participants }) {
     // Group IDs
     const groupID = '120363020837863962@g.us'; // Replace with actual group ID
-    const gamingGroups = ['120363022290154127@g.us']; // Replace with actual gaming group ID
-    const nonGamingGroups = ['60177637943-1627735681@g.us', '60177637943-1634746023@g.us']; // Replace with actual non-gaming group IDs
+    const broadcastGroups = ['120363022290154127@g.us','60177637943-1627735681@g.us', '60177637943-1634746023@g.us']; // Replace with actual non-gaming group IDs
 
     // Function to check if a string only contains emojis or is empty
     const isOnlyEmoteOrEmpty = (text) => {
@@ -34,52 +33,21 @@ export async function before(m, { conn, text, participants }) {
         let textMessage = `${m.text}\n-by @${senderUsername}\n\n_Join for more:_ https://chat.whatsapp.com/GEPZmqMPDthAAUzn0LMygx`;
         let mentions = [m.sender];
 
-        if (isGamingMessage(m.text)) {
-            if (/video|image/g.test(mime) && !/webp/g.test(mime)) {
-                // Gaming message with media
-                for (const gamingGroup of gamingGroups) {
-                    let media = await q.download?.();
-                    await conn.sendFile(gamingGroup, media, '', textMessage, null, false, { mentions });
-                }
-            } else {
-                for (const gamingGroup of gamingGroups) {
-                    await conn.reply(gamingGroup, textMessage, null, { mentions });
-                }
+
+        if (/video|image/g.test(mime) && !/webp/g.test(mime)) {
+            // General message with media
+            for (const broadcastGroup of broadcastGroups) {
+                let media = await q.download?.();
+                await conn.sendFile(broadcastGroup, media, '', textMessage, null, false, { mentions });
             }
         } else {
-            if (/video|image/g.test(mime) && !/webp/g.test(mime)) {
-                // General message with media
-                for (const nonGamingGroup of nonGamingGroups) {
-                    let media = await q.download?.();
-                    await conn.sendFile(nonGamingGroup, media, '', textMessage, null, false, { mentions });
-                }
-                for (const gamingGroup of gamingGroups) {
-                    let media = await q.download?.();
-                    await conn.sendFile(gamingGroup, media, '', textMessage, null, false, { mentions });
-                }
-            } else {
-                // General text message
-                for (const nonGamingGroup of nonGamingGroups) {
-                    await conn.reply(nonGamingGroup, textMessage, null, { mentions });
-                }
-                for (const gamingGroup of gamingGroups) {
-                    await conn.reply(gamingGroup, textMessage, null, { mentions });
-                }
+            // General text message
+            for (const broadcastGroup of broadcastGroups) {
+                await conn.reply(broadcastGroup, textMessage, null, { mentions });
             }
         }
+
     }
 
     return true;
-}
-
-// Function to check for gaming keywords
-function isGamingMessage(text) {
-    const gamingKeywords = [
-        'wild rift', 'mobile legends', 'league of legends', 'dota', 'pubg', 'fortnite',
-        'apex legends', 'valorant', 'honkai', 'wuthering waves', 'blue archive',
-        'star rail', 'genshin', 'call of duty', 'epic games', 'riot games', 'mihoyo', 'esports',
-        'menang', 't1', 'win', 'league'
-    ];
-    const lowerText = text.toLowerCase(); // Convert text to lowercase for case-insensitive comparison
-    return gamingKeywords.some(keyword => lowerText.includes(keyword)); // Check if any keyword exists in the text
 }
