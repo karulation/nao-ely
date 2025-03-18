@@ -10,7 +10,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
                             "Administrator - Mio\n" +
                             "Assistant Administrator - Kemey\n" +
                             "Event Manager - Rei\n\n" +
-                            "Manager of Anti-Skill - Hazu\n\n" +
+                            "Manager of Anti-Skill - Hazu\n" +
                             "୨⎯ Neo Anti-Skill (WhatsApp) ⎯୧\n" +
                             "First Tier Anti Skill - Rin\n" +
                             "First Tier Anti Skill - Izumi\n" +

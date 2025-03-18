@@ -3,8 +3,8 @@ import fetch from 'node-fetch';
 let handler = async (m, { conn, usedPrefix, command, text }) => {
     try {
         var media = 'https://telegra.ph/file/aa321d2670c88d1bc835d.jpg';
-        var textMessage = '*Rule Number 5: Ask for permission before promoting stuff*\n\nRule 5 states that if members want to promote something, they need to submit an application to any admin first before promoting it. The application should include the following details:\n\n1. Content name: This refers to the name of the content that the member wants to promote.\n\n2. About: This refers to a brief description of the content that the member wants to promote.\n\n3. Group/Community/owner/etc: This refers to the group, community, owner, or any relevant information about the content that the member wants to promote.\n\nBy submitting an application and obtaining permission from the admin, members can avoid promoting content that may be considered inappropriate or irrelevant to the anime community.';
-        
+        var textMessage = '*Rule 5: Seek Permission Before Self-Promotion*\n🚫 Please do not promote your own content, business, or social media without getting approval from Neo HQ/Admins first.\n\n- This includes: promoting your TikTok, YouTube, Instagram, shop, or any services you offer.\n✅ However, sharing content from popular pages, public figures, or memes from other creators is allowed and does not count as self-promotion.\nLet’s keep the group free from spammy promos and focused on meaningful sharing. Always check first before posting your own stuff!';
+
         await conn.sendFile(m.chat, media, '', textMessage, m);
     } catch (e) {
         m.reply('An error occurred, please contact Karu.');
