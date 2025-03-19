@@ -13,7 +13,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 };
 
 handler.help = ['leaveoption'];
-handler.tags = ['neo'];
+handler.tags = ['Neo Notice'];
 handler.command = /^(leaveoption)$/i;
 
 export default handler;

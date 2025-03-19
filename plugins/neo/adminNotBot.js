@@ -13,7 +13,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 };
 
 handler.help = ['adminnotbot'];
-handler.tags = ['neo'];
+handler.tags = ['Neo Notice'];
 handler.command = /^(adminnotbot)$/i;
 
 export default handler;

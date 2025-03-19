@@ -19,7 +19,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
 };
 
 handler.help = ["warningnotice"];
-handler.tags = ["neo"];
+handler.tags = ["neonotice"];
 handler.command = /^(warningnotice)$/i;
 
 export default handler;
