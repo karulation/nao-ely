@@ -57,10 +57,11 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
     });
 
     var systemMessage = await fs.readFile("src/data/srsAi.txt", "utf-8");
+    var contactsText = await fs.readFile("src/data/contacts.txt", "utf-8");
 
     console.log(systemMessage);
 
-    let botReply = await fetchAIResponse(text, systemMessage);
+    let botReply = await fetchAIResponse(text, systemMessage+contactsText);
 
     await conn.sendMessage(m.chat, {
       text: botReply,
