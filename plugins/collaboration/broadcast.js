@@ -35,6 +35,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
             let textMessage = `${text}\n\n📢 _AniMY Community Collaboration Broadcast_\n👤 By: @${senderUsername}`;
             let mentions = [m.sender];
             let successCount = 0;
+            let failedGroups = [];
 
             if (/video|image/.test(mime) && !/webp/.test(mime)) {
                 // If message contains an image or video
@@ -43,13 +44,18 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
                         let media = await q.download?.(); // Re-download for each group
                         if (!media) {
                             console.error(`❌ Failed to download media for ${group}`);
+                            failedGroups.push(group);
                             continue;
                         }
-                        await conn.sendFile(group, media, "", textMessage, null, false, { mentions });
+                        await conn.sendFile(group, media, "", textMessage, null, false, {
+                            mentions,
+                        });
                         console.log(`✅ Media broadcast sent to: ${group}`);
                         successCount++;
+                        await new Promise((resolve) => setTimeout(resolve, 2000)); // Wait for 2 seconds
                     } catch (err) {
                         console.error(`❌ Error sending media to ${group}:`, err);
+                        failedGroups.push(group);
                     }
                 }
             } else {
@@ -59,14 +65,19 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
                         await conn.reply(group, textMessage, null, { mentions });
                         console.log(`✅ Text broadcast sent to: ${group}`);
                         successCount++;
+                        await new Promise((resolve) => setTimeout(resolve, 2000)); // Wait for 2 seconds
                     } catch (err) {
                         console.error(`❌ Error sending text to ${group}:`, err);
+                        failedGroups.push(group);
                     }
                 }
             }
 
             // Notify sender that broadcast is complete
             let completionMessage = `✅ Broadcast completed! Sent to ${successCount} group(s).`;
+            if (failedGroups.length > 0) {
+                completionMessage += `\n❌ Failed to send to ${failedGroups.length} group(s): ${failedGroups.join(", ")}`;
+            }
             await conn.reply(m.chat, completionMessage, m);
         }
 
@@ -77,8 +88,6 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
     }
 };
 
-handler.help = ["bc"];
-handler.tags = ["collab"];
 handler.command = /^(bc)$/i;
 
 export default handler;
