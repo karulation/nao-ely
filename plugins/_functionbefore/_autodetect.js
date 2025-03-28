@@ -3,6 +3,8 @@ import Connection from '../../lib/connection.js'
 import db from '../../lib/database.js'
 import { ranNumb, padLead } from '../../lib/func.js'
 import fs from "fs/promises";
+import Canvafy from "canvafy";
+
 
 
 const neoGroups = [
@@ -66,7 +68,7 @@ export async function before(m) {
 			}
 		}
 		try {
-			const can = await (await import('canvafy')).default
+			const can = new Canvafy();
 			pp = await new can.WelcomeLeave()
 				.setAvatar(pp)
 				.setBackground('image', bg)
