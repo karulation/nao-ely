@@ -707,177 +707,177 @@ export async function handler(chatUpdate) {
           // 		soal: null
         }
       }
-      let chat = db.data.chats[m.chat];
-      if (m.chat.endsWith("@g.us")) {
-        if (typeof chat !== "object") db.data.chats[m.chat] = {};
-        if (chat) {
-          if (!("presence" in chat)) chat.presence = false;
-          if (!("isBanned" in chat)) chat.isBanned = false;
-          if (!("permaBan" in chat)) chat.permaBan = false;
-          if (!("welcome" in chat)) chat.welcome = true;
-          if (!("detect" in chat)) chat.detect = false;
-          if (!("sWelcome" in chat)) chat.sWelcome = "";
-          if (!("sBye" in chat)) chat.sBye = "";
-          if (!("sPromote" in chat)) chat.sPromote = "";
-          if (!("sDemote" in chat)) chat.sDemote = "";
-          if (!("openaitxt" in chat)) chat.openaitxt = [];
-          if (!("delete" in chat)) chat.delete = true;
-          if (!("antiLink" in chat)) chat.antiLink = false;
-          if (!("antivirus" in chat)) chat.antivirus = false;
-          if (!("nsfw" in chat)) chat.nsfw = false;
-          if (!("pdf" in chat)) chat.pdf = false;
-          if (!("game" in chat)) chat.game = false;
-          if (!("simi" in chat)) chat.simi = false;
-          if (!("lastsimi" in chat)) chat.lastsimi = false;
-          if (!("viewonce" in chat)) chat.viewonce = false;
-          if (!("antiToxic" in chat)) chat.antiToxic = false;
-          if (!("autolevelup" in chat)) chat.autolevelup = false;
-          if (!("autoai" in chat)) chat.autoai = false;
-          if (!isNumber(chat.joindate)) chat.joindate = 0;
-          if (!isNumber(chat.joincd)) chat.joincd = 0;
-          if (!isNumber(chat.expired)) chat.expired = 0;
-          if (!isNumber(chat.lastmute)) chat.lastmute = 0;
-          if (!isNumber(chat.mutecd)) chat.mutecd = 0;
-          if (!isNumber(chat.spamcount)) chat.spamcount = 0;
-        } else
-          db.data.chats[m.chat] = {
-            presence: false,
-            isBanned: false,
-            permaBan: false,
-            welcome: true,
-            detect: false,
-            sWelcome: "",
-            sBye: "",
-            sPromote: "",
-            sDemote: "",
-            openaitxt: [],
-            delete: true,
-            antiLink: false,
-            antivirus: false,
-            nsfw: false,
-            pdf: false,
-            game: false,
-            simi: false,
-            lastsimi: false,
-            viewonce: false,
-            antiToxic: true,
-            autolevelup: false,
-            autoai: false,
-            joindate: 0,
-            joincd: 0,
-            expired: 0,
-            lastmute: 0,
-            mutecd: 0,
-            spamcount: 0,
-          };
-        // 	let akinator = db.data.chats[m.chat].akinator
-        // 	if (typeof akinator !== 'object')
-        // 		db.data.chats[m.chat].akinator = {}
-        // 	if (akinator) {
-        // 		if (!('sesi' in akinator))
-        // 			akinator.sesi = false
-        // 		if (!('server' in akinator))
-        // 			akinator.server = null
-        // 		if (!('frontaddr' in akinator))
-        // 			akinator.frontaddr = null
-        // 		if (!('session' in akinator))
-        // 			akinator.session = null
-        // 		if (!('signature' in akinator))
-        // 			akinator.signature = null
-        // 		if (!('question' in akinator))
-        // 			akinator.question = null
-        // 		if (!('progression' in akinator))
-        // 			akinator.progression = null
-        // 		if (!('step' in akinator))
-        // 			akinator.step = null
-        // 		if (!('soal' in akinator))
-        // 			akinator.soal = null
-        // 	} else db.data.chats[m.chat].akinator = {
-        // 		sesi: false,
-        // 		server: null,
-        // 		frontaddr: null,
-        // 		session: null,
-        // 		signature: null,
-        // 		question: null,
-        // 		progression: null,
-        // 		step: null,
-        // 		soal: null
-        // 	}
-      }
-      let settings = db.data.settings[this.user.jid];
-      if (typeof settings !== "object") db.data.settings[this.user.jid] = {};
-      if (settings) {
-        if (!("self" in settings)) settings.self = false;
-        if (!("autoread" in settings)) settings.autoread = false;
-        if (!("restrict" in settings)) settings.restrict = false;
-      } else
-        db.data.settings[this.user.jid] = {
-          self: false,
-          autoread: false,
-          restrict: false,
-        };
-      let datas = db.data.datas;
-      if (typeof datas !== "object") db.data.datas = {};
-      if (datas) {
-        if (!("maingroupname" in datas)) datas.maingroupname = "";
-        if (!("aiprofile" in datas)) datas.aiprofile = "";
-        if (!("packname" in datas)) datas.packname = "";
-        if (!("author" in datas)) datas.author = "";
-        if (!("linkgc" in datas)) datas.linkgc = "";
-        if (!("idcai" in datas)) datas.idcai = "";
-        if (!("spamcountreset" in datas)) datas.spamcountreset = 0;
-        if (!("spamcountgcreset" in datas)) datas.spamcountgcreset = 0;
-        if (!("spamlistmsg" in datas)) datas.spamlistmsg = null;
-        if (!("spamlistgcmsg" in datas)) datas.spamlistgcmsg = null;
-        if (!("anticall" in datas)) datas.anticall = false;
-        if (!("autoai" in datas)) datas.autoai = false;
-        if (!("teksdonasi" in datas)) datas.teksdonasi = "";
-        if (!("tekssewa" in datas)) datas.tekssewa = "";
-        if (!("teksjadibot" in datas)) datas.teksjadibot = "";
-        if (!("tekstopup" in datas)) datas.tekstopup = "";
-        if (!("linkgc" in datas)) datas.linkgc = "";
-        if (!("prems" in datas)) datas.prems = [{ user: "", date: 0 }];
-        if (!("api" in datas)) datas.api = {};
-        if (!("rowner" in datas)) datas.rowner = [];
-        if (!("owner" in datas)) datas.owner = [];
-        if (!("store" in datas)) datas.store = [];
-        if (!("storestatus" in datas)) datas.storestatus = {};
-        if (!("menfess" in datas)) datas.menfess = {};
-        if (!("listgc" in datas)) datas.listgc = [];
-        if (!("openaikey" in datas)) datas.openaikey = [];
-        if (!("menfesschat" in datas)) datas.menfesschat = {};
-        if (!("menfesschatcd" in datas)) datas.menfesschatcd = 0;
-      } else
-        db.data.datas = {
-          maingroupname: "",
-          aiprofile: "",
-          packname: "",
-          author: "",
-          linkgc: "",
-          idcai: "",
-          wgempa: "",
-          spamcountreset: 0,
-          spamcountgcreset: 0,
-          spamlistmsg: null,
-          spamlistgcmsg: null,
-          anticall: false,
-          autoai: false,
-          teksdonasi: "",
-          tekssewa: "",
-          teksjadibot: "",
-          tekstopup: "",
-          prems: [{ user: "", date: 0 }],
-          api: {},
-          rowner: [],
-          owner: [],
-          store: [],
-          storestatus: {},
-          menfess: {},
-          listgc: [],
-          openaikey: [],
-          menfesschat: {},
-          menfesschatcd: 0,
-        };
+      // let chat = db.data.chats[m.chat];
+      // if (m.chat.endsWith("@g.us")) {
+      //   if (typeof chat !== "object") db.data.chats[m.chat] = {};
+      //   if (chat) {
+      //     if (!("presence" in chat)) chat.presence = false;
+      //     if (!("isBanned" in chat)) chat.isBanned = false;
+      //     if (!("permaBan" in chat)) chat.permaBan = false;
+      //     if (!("welcome" in chat)) chat.welcome = true;
+      //     if (!("detect" in chat)) chat.detect = false;
+      //     if (!("sWelcome" in chat)) chat.sWelcome = "";
+      //     if (!("sBye" in chat)) chat.sBye = "";
+      //     if (!("sPromote" in chat)) chat.sPromote = "";
+      //     if (!("sDemote" in chat)) chat.sDemote = "";
+      //     if (!("openaitxt" in chat)) chat.openaitxt = [];
+      //     if (!("delete" in chat)) chat.delete = true;
+      //     if (!("antiLink" in chat)) chat.antiLink = false;
+      //     if (!("antivirus" in chat)) chat.antivirus = false;
+      //     if (!("nsfw" in chat)) chat.nsfw = false;
+      //     if (!("pdf" in chat)) chat.pdf = false;
+      //     if (!("game" in chat)) chat.game = false;
+      //     if (!("simi" in chat)) chat.simi = false;
+      //     if (!("lastsimi" in chat)) chat.lastsimi = false;
+      //     if (!("viewonce" in chat)) chat.viewonce = false;
+      //     if (!("antiToxic" in chat)) chat.antiToxic = false;
+      //     if (!("autolevelup" in chat)) chat.autolevelup = false;
+      //     if (!("autoai" in chat)) chat.autoai = false;
+      //     if (!isNumber(chat.joindate)) chat.joindate = 0;
+      //     if (!isNumber(chat.joincd)) chat.joincd = 0;
+      //     if (!isNumber(chat.expired)) chat.expired = 0;
+      //     if (!isNumber(chat.lastmute)) chat.lastmute = 0;
+      //     if (!isNumber(chat.mutecd)) chat.mutecd = 0;
+      //     if (!isNumber(chat.spamcount)) chat.spamcount = 0;
+      //   } else
+      //     db.data.chats[m.chat] = {
+      //       presence: false,
+      //       isBanned: false,
+      //       permaBan: false,
+      //       welcome: true,
+      //       detect: false,
+      //       sWelcome: "",
+      //       sBye: "",
+      //       sPromote: "",
+      //       sDemote: "",
+      //       openaitxt: [],
+      //       delete: true,
+      //       antiLink: false,
+      //       antivirus: false,
+      //       nsfw: false,
+      //       pdf: false,
+      //       game: false,
+      //       simi: false,
+      //       lastsimi: false,
+      //       viewonce: false,
+      //       antiToxic: true,
+      //       autolevelup: false,
+      //       autoai: false,
+      //       joindate: 0,
+      //       joincd: 0,
+      //       expired: 0,
+      //       lastmute: 0,
+      //       mutecd: 0,
+      //       spamcount: 0,
+      //     };
+      //   // 	let akinator = db.data.chats[m.chat].akinator
+      //   // 	if (typeof akinator !== 'object')
+      //   // 		db.data.chats[m.chat].akinator = {}
+      //   // 	if (akinator) {
+      //   // 		if (!('sesi' in akinator))
+      //   // 			akinator.sesi = false
+      //   // 		if (!('server' in akinator))
+      //   // 			akinator.server = null
+      //   // 		if (!('frontaddr' in akinator))
+      //   // 			akinator.frontaddr = null
+      //   // 		if (!('session' in akinator))
+      //   // 			akinator.session = null
+      //   // 		if (!('signature' in akinator))
+      //   // 			akinator.signature = null
+      //   // 		if (!('question' in akinator))
+      //   // 			akinator.question = null
+      //   // 		if (!('progression' in akinator))
+      //   // 			akinator.progression = null
+      //   // 		if (!('step' in akinator))
+      //   // 			akinator.step = null
+      //   // 		if (!('soal' in akinator))
+      //   // 			akinator.soal = null
+      //   // 	} else db.data.chats[m.chat].akinator = {
+      //   // 		sesi: false,
+      //   // 		server: null,
+      //   // 		frontaddr: null,
+      //   // 		session: null,
+      //   // 		signature: null,
+      //   // 		question: null,
+      //   // 		progression: null,
+      //   // 		step: null,
+      //   // 		soal: null
+      //   // 	}
+      // }
+      // let settings = db.data.settings[this.user.jid];
+      // if (typeof settings !== "object") db.data.settings[this.user.jid] = {};
+      // if (settings) {
+      //   if (!("self" in settings)) settings.self = false;
+      //   if (!("autoread" in settings)) settings.autoread = false;
+      //   if (!("restrict" in settings)) settings.restrict = false;
+      // } else
+      //   db.data.settings[this.user.jid] = {
+      //     self: false,
+      //     autoread: false,
+      //     restrict: false,
+      //   };
+      // let datas = db.data.datas;
+      // if (typeof datas !== "object") db.data.datas = {};
+      // if (datas) {
+      //   if (!("maingroupname" in datas)) datas.maingroupname = "";
+      //   if (!("aiprofile" in datas)) datas.aiprofile = "";
+      //   if (!("packname" in datas)) datas.packname = "";
+      //   if (!("author" in datas)) datas.author = "";
+      //   if (!("linkgc" in datas)) datas.linkgc = "";
+      //   if (!("idcai" in datas)) datas.idcai = "";
+      //   if (!("spamcountreset" in datas)) datas.spamcountreset = 0;
+      //   if (!("spamcountgcreset" in datas)) datas.spamcountgcreset = 0;
+      //   if (!("spamlistmsg" in datas)) datas.spamlistmsg = null;
+      //   if (!("spamlistgcmsg" in datas)) datas.spamlistgcmsg = null;
+      //   if (!("anticall" in datas)) datas.anticall = false;
+      //   if (!("autoai" in datas)) datas.autoai = false;
+      //   if (!("teksdonasi" in datas)) datas.teksdonasi = "";
+      //   if (!("tekssewa" in datas)) datas.tekssewa = "";
+      //   if (!("teksjadibot" in datas)) datas.teksjadibot = "";
+      //   if (!("tekstopup" in datas)) datas.tekstopup = "";
+      //   if (!("linkgc" in datas)) datas.linkgc = "";
+      //   if (!("prems" in datas)) datas.prems = [{ user: "", date: 0 }];
+      //   if (!("api" in datas)) datas.api = {};
+      //   if (!("rowner" in datas)) datas.rowner = [];
+      //   if (!("owner" in datas)) datas.owner = [];
+      //   if (!("store" in datas)) datas.store = [];
+      //   if (!("storestatus" in datas)) datas.storestatus = {};
+      //   if (!("menfess" in datas)) datas.menfess = {};
+      //   if (!("listgc" in datas)) datas.listgc = [];
+      //   if (!("openaikey" in datas)) datas.openaikey = [];
+      //   if (!("menfesschat" in datas)) datas.menfesschat = {};
+      //   if (!("menfesschatcd" in datas)) datas.menfesschatcd = 0;
+      // } else
+      //   db.data.datas = {
+      //     maingroupname: "",
+      //     aiprofile: "",
+      //     packname: "",
+      //     author: "",
+      //     linkgc: "",
+      //     idcai: "",
+      //     wgempa: "",
+      //     spamcountreset: 0,
+      //     spamcountgcreset: 0,
+      //     spamlistmsg: null,
+      //     spamlistgcmsg: null,
+      //     anticall: false,
+      //     autoai: false,
+      //     teksdonasi: "",
+      //     tekssewa: "",
+      //     teksjadibot: "",
+      //     tekstopup: "",
+      //     prems: [{ user: "", date: 0 }],
+      //     api: {},
+      //     rowner: [],
+      //     owner: [],
+      //     store: [],
+      //     storestatus: {},
+      //     menfess: {},
+      //     listgc: [],
+      //     openaikey: [],
+      //     menfesschat: {},
+      //     menfesschatcd: 0,
+      //   };
     } catch (e) {
       console.error(e);
     }
@@ -1117,29 +1117,29 @@ export async function handler(chatUpdate) {
         }
         m.isCommand = true;
         _user.spamcount += 1;
-        let xp = "exp" in plugin ? parseInt(plugin.exp) : 17; // XP Earning per command
-        if (xp > 200) m.reply(`You're BEATER -_-`); // Hehehe
-        else m.exp += xp;
-        if (
-          !isPrems &&
-          plugin.limit &&
-          db.data.users[m.sender].limit < plugin.limit * 1
-        ) {
-          this.reply(
-            m.chat,
-            `Your already reach your limit, become premium to enjoy unlimited bot usage!\n\n Click link to buy: https://wa.me/60177637943`,
-            m
-          );
-          continue; // Limit habis
-        }
-        if (plugin.level > _user.level) {
-          this.reply(
-            m.chat,
-            `need to be level ${plugin.level} to use this command. Your level right now is ${_user.level}`,
-            m
-          );
-          continue; // If the level has not been reached
-        }
+        // let xp = "exp" in plugin ? parseInt(plugin.exp) : 17; // XP Earning per command
+        // if (xp > 200) m.reply(`You're BEATER -_-`); // Hehehe
+        // else m.exp += xp;
+        // if (
+        //   !isPrems &&
+        //   plugin.limit &&
+        //   db.data.users[m.sender].limit < plugin.limit * 1
+        // ) {
+        //   this.reply(
+        //     m.chat,
+        //     `Your already reach your limit, become premium to enjoy unlimited bot usage!\n\n Click link to buy: https://wa.me/60177637943`,
+        //     m
+        //   );
+        //   continue; // Limit habis
+        // }
+        // if (plugin.level > _user.level) {
+        //   this.reply(
+        //     m.chat,
+        //     `need to be level ${plugin.level} to use this command. Your level right now is ${_user.level}`,
+        //     m
+        //   );
+        //   continue; // If the level has not been reached
+        // }
         let extra = {
           match,
           usedPrefix,
