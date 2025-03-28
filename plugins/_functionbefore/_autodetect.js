@@ -65,22 +65,22 @@ export async function before(m) {
 				var text = (add ? (chat.sWelcome || this.welcome || Connection.conn.welcome || 'Welcome, @user!').replace('@subject', namegc).replace('@desc', chat.isBanned ? `${chat.lastmute > 0 ? `Bot has been muted for :\n${(chat.mutecd - (new Date - chat.lastmute)).toTimeString()}` : `Bot in maintenance mode.`}` : (meta.desc?.toString() || '~')) : (chat.sBye || this.bye || Connection.conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
 			}
 		}
-		// try {
-		// 	const can = await (await import('canvafy')).default
-		// 	pp = await new can.WelcomeLeave()
-		// 		.setAvatar(pp)
-		// 		.setBackground('image', bg)
-		// 		.setTitle(add ? 'Welcome' : 'Goodbye', add ? '#3495eb' : '#eb4034')
-		// 		.setDescription(`${add ? 'Hello' : 'Sayonara'} ${name} | ${add ? 'Welcome to' : 'Leaving from'} ${namegc}`, '#34eb7d')
-		// 		.setBorder("#2a2e35")
-		// 		.setAvatarBorder("#2a2e35")
-		// 		.setOverlayOpacity(0.6)
-		// 		.build()
-		// 	await this.sendFile(id, pp, '', text, fkontak, false, { mentions: [user] })
-		// } catch (e) {
-		// 	console.log(e)
-		// 	await this.reply(id, text, fkontak, { mentions: [user] })
-		// }
+		try {
+			const can = await (await import('canvafy')).default
+			pp = await new can.WelcomeLeave()
+				.setAvatar(pp)
+				.setBackground('image', bg)
+				.setTitle(add ? 'Welcome' : 'Goodbye', add ? '#3495eb' : '#eb4034')
+				.setDescription(`${add ? 'Hello' : 'Sayonara'} ${name} | ${add ? 'Welcome to' : 'Leaving from'} ${namegc}`, '#34eb7d')
+				.setBorder("#2a2e35")
+				.setAvatarBorder("#2a2e35")
+				.setOverlayOpacity(0.6)
+				.build()
+			await this.sendFile(id, pp, '', text, fkontak, false, { mentions: [user] })
+		} catch (e) {
+			console.log(e)
+			await this.reply(id, text, fkontak, { mentions: [user] })
+		}
 	} else {
 		console.log({
 			messageStubType: m.messageStubType,
