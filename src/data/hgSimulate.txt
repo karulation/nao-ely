@@ -1,0 +1,2 @@
+Create simulation of Hunger Games based on the players that alive and dead. You can make up how they surviving or dead for each player. 
+They can team up, surviving alone, assasinate or anything that you can think of.
