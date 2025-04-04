@@ -24,6 +24,9 @@ export async function before(m, { conn, text, participants }) {
         'pornhub', 'xhamster', 'redtube', 'youporn', 'xnxx', 'xvideos', 'noodlemagazine', 'mat6tube', 'exporn', 'rule34', 'onlyfans', 'e-hentai', '3hentai', 'hentai18', 'boku no pico'
     ];
 
+    // ✅ Skip if message is from the bot itself
+    if (m.sender === conn.user.jid) return;
+
     // Helper function to check if a string only contains emojis or is empty
     const isOnlyEmoteOrEmpty = (text) => {
         if (!text || text.trim() === '') {
