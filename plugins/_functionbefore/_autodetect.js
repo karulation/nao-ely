@@ -9,7 +9,7 @@ const neoGroups = [
 	{ id: '120363022290154127@g.us', name: 'Neo Arcus' },
 	{ id: '60177637943-1627735681@g.us', name: 'Neo Asterisk' },
 	{ id: '60177637943-1634746023@g.us', name: 'Neo Iota' },
-	{ id: '120363226270078711@g.us', name: 'Nao Basement' }
+	{ id: '120363022632239561@g.us', name: 'Nao Basement' }
 ];
 
 export async function before(m) {
