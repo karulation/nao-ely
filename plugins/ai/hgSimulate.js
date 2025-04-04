@@ -54,36 +54,47 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
     var systemMessage = await fs.readFile("src/data/hgSimulate.txt", "utf-8");
 
     text = `
+      Simulate based on this data: 
       Time: Night 1
 
       Alive :
-          - Katniss Everdeen
-          - Peeta Mellark
-          - Rue
-          - Thresh
-          - Cinna
-          - Haymitch Abernathy
-          - Effie Trinket
-          - Caesar Flickerman
-          - Seneca Crane
-          - Glimmer
-          - Marvel
-          - Cato
-          - Clove
-          - Foxface
+          - Karu
+          - Mio
+          - Yamato
+          - Hazu
+          - Zen
+          - Mui
+          - Ren
+          - Rika
+          - Nyom
+          - Ina
+          - Syaz
+          - Rin
+          - Rei
+          - Unknown sponsor
+          - BlackMoon
+
+      Dead in this round : 
+          - Lesley
+          - Riezu
+          - Izumi
+          - Shiroi
+          - Aichan
 
       Dead : 
-          - Lavinia
-          - Portia
-          - Flavius
-          - Octavia
-          - Venia
-          - Atala
-          - Maysilee
-          - Madge
+          - Lesley
+          - Mentos
+          - Piko
+          - Riezu
+          - Izumi
+          - Shiroi
+          - Aichan
+          - Muisu
     `;
 
     let botReply = await fetchAIResponse(text, systemMessage);
+
+    botReply = 'In Dev : ' + botReply;
 
     await conn.sendMessage(m.chat, {
       text: botReply,
@@ -98,7 +109,7 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
   }
 };
 
-handler.help = ["simulatehg"];
+// handler.help = [""];
 // handler.tags = ["aimenu"];
 handler.command = /^(simulatehg)$/i;
 
