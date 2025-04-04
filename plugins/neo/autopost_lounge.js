@@ -4,6 +4,9 @@ export async function before(m, { conn, text, participants }) {
     // Group IDs
     const groupID = '120363020837863962@g.us'; // Replace with actual group ID
     const broadcastGroups = ['120363022290154127@g.us','60177637943-1627735681@g.us', ]; // '60177637943-1634746023@g.us' Replace with actual non-gaming group IDs
+    
+    // ✅ Skip if message is from the bot itself
+    if (m.sender === conn.user.jid) return;
 
     // Function to check if a string only contains emojis or is empty
     const isOnlyEmoteOrEmpty = (text) => {
