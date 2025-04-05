@@ -57,39 +57,42 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
       Simulate based on this data: 
       Time: Night 1
 
-      Alive :
-          - Karu
-          - Mio
-          - Yamato
-          - Hazu
-          - Zen
-          - Mui
-          - Ren
-          - Rika
-          - Nyom
-          - Ina
-          - Syaz
-          - Rin
-          - Rei
-          - Unknown sponsor
-          - BlackMoon
+      Alive :[
+  "Karu",
+  "Mio",
+  "Yamato",
+  "Hazu",
+  "Zen",
+  "Mui",
+  "Ren",
+  "Rika",
+  "Nyom",
+  "Ina",
+  "Syaz",
+  "Rin",
+  "Rei",
+  "Unknown sponsor",
+  "BlackMoon"
+]
 
-      Dead in this round : 
-          - Lesley
-          - Riezu
-          - Izumi
-          - Shiroi
-          - Aichan
+      Dead in this round : [
+  "Lesley",
+  "Riezu",
+  "Izumi",
+  "Shiroi",
+  "Aichan"
+]
 
-      Dead : 
-          - Lesley
-          - Mentos
-          - Piko
-          - Riezu
-          - Izumi
-          - Shiroi
-          - Aichan
-          - Muisu
+      Dead : [
+  "Lesley",
+  "Mentos",
+  "Piko",
+  "Riezu",
+  "Izumi",
+  "Shiroi",
+  "Aichan",
+  "Muisu"
+]
     `;
 
     let botReply = await fetchAIResponse(text, systemMessage);

@@ -8,32 +8,32 @@ Make sure every player will be listed in the simulation.
 Example usage of template :
     ✨ *Hunger Games Simulation - [Time]: [Core event title]* ✨
 
-    - *Karu, *Mio, and *Zen* stumble upon each other near a river. Karu negotiates a truce, leveraging Zen’s tech skills to hack into a hidden supply crate. They secure thermal blankets and protein bars.  
+    - *Tribute 1, *Tribute 2, and *Tribute 3* stumble upon each other near a river. Tribute 1 negotiates a truce, leveraging Zen’s tech skills to hack into a hidden supply crate. They secure thermal blankets and protein bars.  
 
-    - *Ren* and *Rika* bond over their shared distrust of others, building a makeshift shelter in a hollow tree.  
+    - *Tribute 4* and *Tribute 5* bond over their shared distrust of others, building a makeshift shelter in a hollow tree.  
 
-    - *Syaz* ambushes *Ina* at a weapons cache, stabbing her in a fight over a machete. Ina’s body collapses into the mud, her final words accusing Syaz of “playing the Game too early.”  
+    - *Tribute 6* ambushes *Tribute 13* at a weapons cache, stabbing her in a fight over a machete. Ina’s body collapses into the mud, her final words accusing Tribute 6 of “playing the Game too early.”  
 
-    - *Unknown Sponsor* receives a vial of neurotoxin via drone. They smile, tucking it into their belt.  
+    - *Tribute 8* receives a vial of neurotoxin via drone. They smile, tucking it into their belt.  
 
-    - *Rei* climbs a pine tree to observe the carnage, mapping out tribute movements in a notebook.  
+    - *Tribute 7* climbs a pine tree to observe the carnage, mapping out tribute movements in a notebook.  
 
-    - *Yamato, hunting alone, is cornered by *BlackMoon* near a cliff. After a brutal hand-to-hand fight, BlackMoon disarms him and slits his throat, muttering, “Weakness dies first.
-      ```YAMATO KILLED```
+    - *Tribute 10, hunting alone, is cornered by *Tribute 9* near a cliff. After a brutal hand-to-hand fight, Tribute 9 disarms him and slits his throat, muttering, “Weakness dies first.
+      ```Tribute 10 KILLED```
 
     - Ali tries to steal Hazu’s backpack but steps on a landmine left by previous tributes. The explosion kills both instantly.  
-      Ali KILLED | HAZU KILLED  
+      Ali KILLED | Tribute 11 KILLED  
 
 
     *Status Update:*  
     *Alive (9):*  
-    Karu, Mio, Zen, Ren, Rika, Syaz, Rei, Unknown Sponsor, BlackMoon  
+    Tribute 1, Tribute 2, Tribute 3, Tribute 4, Tribute 5, Tribute 6, Tribute 7, Tribute 8, Tribute 9  
 
     Dead in [time] (7):  
-    Yamato, Hazu, Mui, Ina, Rin, Syaz, BlackMoon  
+    Tribute 10, Tribute 11, Tribute 12, Tribute 13, Tribute 14
 
     Total Dead:  
-    Lesley, Mentos, Piko, Riezu, Izumi, Shiroi, Aichan, Muisu, Yamato, Hazu, Mui, Ina, Rin, Syaz, BlackMoon  
+    Tribute 15, Tribute 16, Tribute 17, Tribute 18, Tribute 19, Tribute 20, Tribute 21, Tribute 22, Tribute 10, Tribute 11, Tribute 12, Tribute 13, Tribute 14
 
 
 
