@@ -58,23 +58,23 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
       Time: Night 12
 
       Alive :[
-  "Karu",
+  "Karu(male)",
 ]
 
       Dead in this round : [
-  "Riezu",
-  "Izumi",
+  "Riezu(male)",
+  "Izumi(male)",
 ]
 
       Dead : [
-  "Lesley",
-  "Mentos",
-  "Piko",
-  "Riezu",
-  "Izumi",
-  "Shiroi",
-  "Aichan",
-  "Muisu"
+  "Lesley(male)",
+  "Mentos(male)",
+  "Piko(male)",
+  "Riezu(male)",
+  "Izumi(male)",
+  "Shiroi(female)",
+  "Aichan(female)",
+  "Muisu(male)"
 ]
     `;
 
