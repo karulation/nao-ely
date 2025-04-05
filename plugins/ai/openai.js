@@ -64,11 +64,11 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
     var contactsText = await fs.readFile("src/data/contacts.txt", "utf-8");
     var naoDetail = await fs.readFile("src/data/naoDetail.txt", "utf-8");
 
-    var senderIdentifier = `IMPORTANT! KEEP IN MIND : This message was sent by "${m.pushName}" from WhatsApp group "${groupName}"\n\nUser message that need to be reply: `;
+    var senderIdentifier = `IMPORTANT! KEEP IN MIND : This message was sent by "${name}" from WhatsApp group "${groupName}"\n\nUser message that need to be reply: `;
 
     text = `${senderIdentifier}${text}`;
 
-    console.log(systemMessage);
+    console.log(text);
 
     let botReply = await fetchAIResponse(text, systemMessage + contactsText + naoDetail);
 
