@@ -17,28 +17,30 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
                             "Anti-Skill : First Division - Izumi\n" +
                             "Anti-Skill : Second Division - Zen\n" +
                             "Anti Skill : Second Division - Muichiro\n" +
-                            "୨⎯ Instagram Department ⎯୧\n" +
-                            "Leader: Ren\n" +
+                            "\n୨⎯ Media Department ⎯୧\n" +
+                            "Head of Department: Izumi\n" +
+                            "\nHead Admin of Instagram (@neoanimeme.my): Ren\n" +
                             "- Muisu\n" +
                             "- Son\n" +
-                            "- Akkinior\n\n" +
-                            "୨⎯ Entertainment Department ⎯୧\n" +
-                            "Leader: Riezu\n" +
+                            "- Akkinior\n" +
+                            "\nHead Admin of TikTok (neoanicom): Mui\n" +
+                            "\n୨⎯ Entertainment Department ⎯୧\n" +
+                            "Head of Department: Riezu\n" +
                             "- Izsyis\n" +
                             "- Shiroi\n" +
                             "- Lesley\n" +
-                            "- Piko\n\n" +
-                            "୨⎯ Discord Department ⎯୧\n" +
-                            "Leader: Mio\n" +
+                            "- Piko\n" +
+                            "\n୨⎯ Discord Department ⎯୧\n" +
+                            "Head of Department: Mio\n" +
                             "- Edmond\n" +
-                            "- Mentos\n\n" +
-                            "୨⎯ Graphic Department⎯୧\n" +
-                            "Leader: Rika Akari\n" +
+                            "- Mentos\n" +
+                            "\n୨⎯ Graphic Department⎯୧\n" +
+                            "Head of Department: Rika Akari\n" +
                             "- Syaz\n" +
                             "- Nyom\n" +
                             "- Inakusayumi \n" +
-                            "- Lesley \n\n" +
-                            "_For Neo Hall Of Fame, type /halloffame_";
+                            "- Lesley \n" +
+                            "\n_For Neo Hall Of Fame, type /halloffame_";
         
         await conn.sendFile(m.chat, media, '', textMessage, m);
     } catch (e) {
