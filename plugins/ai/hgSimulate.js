@@ -55,32 +55,15 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
 
     text = `
       Simulate based on this data: 
-      Time: Night 1
+      Time: Night 12
 
       Alive :[
   "Karu",
-  "Mio",
-  "Yamato",
-  "Hazu",
-  "Zen",
-  "Mui",
-  "Ren",
-  "Rika",
-  "Nyom",
-  "Ina",
-  "Syaz",
-  "Rin",
-  "Rei",
-  "Unknown sponsor",
-  "BlackMoon"
 ]
 
       Dead in this round : [
-  "Lesley",
   "Riezu",
   "Izumi",
-  "Shiroi",
-  "Aichan"
 ]
 
       Dead : [

@@ -5,6 +5,8 @@ Keep in mind, to make bold font you only need 1 asterisk * and same goes to othe
 
 Make sure every player will be listed in the simulation.
 
+If only 3 players or less are going to be simulate, you can create long story of final battle showdown of them.
+
 Example usage of template :
     ✨ *Hunger Games Simulation - [Time]: [Core event title]* ✨
 
