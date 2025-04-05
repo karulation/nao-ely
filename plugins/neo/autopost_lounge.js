@@ -3,7 +3,7 @@ import db from '../../lib/database.js';
 export async function before(m, { conn, text, participants }) {
     // Group IDs
     const groupID = '120363020837863962@g.us'; // Replace with actual group ID
-    const broadcastGroups = ['120363022290154127@g.us','60177637943-1627735681@g.us', ]; // '60177637943-1634746023@g.us' Replace with actual non-gaming group IDs
+    const broadcastGroups = ['120363022290154127@g.us','60177637943-1627735681@g.us', '120363022632239561@g.us']; // '60177637943-1634746023@g.us' Replace with actual non-gaming group IDs
     
     // ✅ Skip if message is from the bot itself
     if (m.sender === conn.user.jid) return;
