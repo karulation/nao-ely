@@ -19,11 +19,11 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
                             "Anti Skill : Second Division - Muichiro\n" +
                             "\n୨⎯ Media Department ⎯୧\n" +
                             "Head of Department: Izumi\n" +
-                            "\nHead Admin of Instagram (@neoanimeme.my): Ren\n" +
+                            "Head Admin of Instagram (@neoanimeme.my): Ren\n" +
                             "- Muisu\n" +
                             "- Son\n" +
                             "- Akkinior\n" +
-                            "\nHead Admin of TikTok (neoanicom): Mui\n" +
+                            "Head Admin of TikTok (neoanicom): Mui\n" +
                             "\n୨⎯ Entertainment Department ⎯୧\n" +
                             "Head of Department: Riezu\n" +
                             "- Izsyis\n" +
