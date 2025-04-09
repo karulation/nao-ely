@@ -43,7 +43,7 @@ const fetchAIResponse = async (text, systemMessage, retries = 3) => {
     }
   }
 
-  return "Sorry, I couldn't generate a response after multiple attempts. Try asking something else!";
+  return "Sorry, I'm on cooldown right now. Try again after few hours!";
 };
 
 const handler = async (m, { text, usedPrefix, command, conn }) => {

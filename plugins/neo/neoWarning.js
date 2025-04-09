@@ -13,12 +13,12 @@ export async function before(m, { conn, text, participants }) {
 
     // List of bad words
     const badWords = [
-        'hentai', 'bdsm', 'boobs', 'oppai', 'manko', 'pussy', 'bodo', 'bodoh', 'hentai',
-        'yaoi', 'dick', 'konek', 'penis', 'fuck', 'thighs', 'ahegao', 'bokep',
+        'hentai', 'bdsm', 'boobs', 'oppai', 'manko', 'pussy', 'bodo', 'bodoh', 
+        'dick', 'konek', 'penis', 'fuck', 'thighs', 'ahegao', 'bokep', 'sex',
         'ketek', 'armpit', 'pedo', 'seggs', 'segs', 'blowjob', 'nigga',
         'keling', 'bitch', 'fellatio', 'masturbate', 'orgy', 'handjob', 'anus',
         'futanari', 'kontol', 'fap', 'fapping', 'ejaculated', 'ejaculation', 'nakadanshi',
-        'himedanshi', 'fujoshi', 'incest', 'nigger', 'cum', 'yuri',
+        'himedanshi', 'fujoshi', 'incest', 'nigger', 'cum', 'hentai',
         'whore', 'jizz', 'porn', 'creampie', 'nenen', 'squirt', 'ching chong',
         'nekopoi','neko poi', 'nhentai', 'hanime', 'hentaihaven', 'watchhentai', 'hentaicity', 'hentaianime', 'hentaifox',
         'pornhub', 'xhamster', 'redtube', 'youporn', 'xnxx', 'xvideos', 'noodlemagazine', 'mat6tube', 'exporn', 'rule34', 
