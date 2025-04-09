@@ -58,13 +58,13 @@ export async function before(m) {
 		let pp = await this.profilePictureUrl(user, 'image').catch(_ => ava_cont)
 		let ppgc = await this.profilePictureUrl(id, 'image').catch(_ => ava_cont)
 		var text = (add ? (chat.sWelcome || this.welcome || Connection.conn.welcome || 'Welcome, @user!').replace('@subject', namegc).replace('@desc', chat.isBanned ? `${chat.lastmute > 0 ? `Bot has been muted for :\n${(chat.mutecd - (new Date - chat.lastmute)).toTimeString()}` : `Bot in maintenance mode.`}` : (meta.desc?.toString() || '~')) : (chat.sBye || this.bye || Connection.conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
-		if (neoGroups.some(group => group.id === id) && add) {
-			console.log('\x1b[35m Processing ai text \x1b[0m')
-			text = await welcomeai(user, namegc); // Get the AI response
-			if(text == null){
-				var text = (add ? (chat.sWelcome || this.welcome || Connection.conn.welcome || 'Welcome, @user!').replace('@subject', namegc).replace('@desc', chat.isBanned ? `${chat.lastmute > 0 ? `Bot has been muted for :\n${(chat.mutecd - (new Date - chat.lastmute)).toTimeString()}` : `Bot in maintenance mode.`}` : (meta.desc?.toString() || '~')) : (chat.sBye || this.bye || Connection.conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
-			}
-		}
+		// if (neoGroups.some(group => group.id === id) && add) {
+		// 	console.log('\x1b[35m Processing ai text \x1b[0m')
+		// 	text = await welcomeai(user, namegc); // Get the AI response
+		// 	if(text == null){
+		// 		var text = (add ? (chat.sWelcome || this.welcome || Connection.conn.welcome || 'Welcome, @user!').replace('@subject', namegc).replace('@desc', chat.isBanned ? `${chat.lastmute > 0 ? `Bot has been muted for :\n${(chat.mutecd - (new Date - chat.lastmute)).toTimeString()}` : `Bot in maintenance mode.`}` : (meta.desc?.toString() || '~')) : (chat.sBye || this.bye || Connection.conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
+		// 	}
+		// }
 		try {
 			const can = await (await import('canvafy')).default
 			pp = await new can.WelcomeLeave()
