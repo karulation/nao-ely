@@ -12,18 +12,17 @@ export async function before(m, { conn, text, participants }) {
     const neoHQ = '60177637943-1634743268@g.us'; // Notification group
 
     // List of bad words
-    const badWords = [
-        'hentai', 'bdsm', 'boobs', 'oppai', 'manko', 'pussy', 'bodo', 'bodoh', 
-        'dick', 'konek', 'penis', 'fuck', 'thighs', 'ahegao', 'bokep', 'sex',
-        'ketek', 'armpit', 'pedo', 'seggs', 'segs', 'blowjob', 'nigga',
-        'keling', 'bitch', 'fellatio', 'masturbate', 'orgy', 'handjob', 'anus',
-        'futanari', 'kontol', 'fap', 'fapping', 'ejaculated', 'ejaculation', 'nakadanshi',
-        'himedanshi', 'fujoshi', 'incest', 'nigger', 'cum', 'hentai',
-        'whore', 'jizz', 'porn', 'creampie', 'nenen', 'squirt', 'ching chong',
-        'nekopoi','neko poi', 'nhentai', 'hanime', 'hentaihaven', 'watchhentai', 'hentaicity', 'hentaianime', 'hentaifox',
-        'pornhub', 'xhamster', 'redtube', 'youporn', 'xnxx', 'xvideos', 'noodlemagazine', 'mat6tube', 'exporn', 'rule34', 
-        'onlyfans', 'e-hentai', '3hentai', 'hentai18', 'boku no pico'
-    ];
+        const badWords = [
+            'hentai', 'bdsm', 'boobs', 'oppai', 'manko', 'pussy', 'bodo', 'bodoh', 'redo of healer', 'sexiest', 'pungkok', 'keling', 'paria', 
+            'dick', 'konek', 'penis', 'fuck', 'ahegao', 'bokep', 'sefong', 'tobrut', 'tocil', 'toge', 'titid', 'tytid', 
+            'ketek', 'armpit', 'pedo', 'seggs', 'segs', 'blowjob', 'nigga','kokop', 'ewe', 'ngewe', 'entot', 'ngentot', 'sepong', 
+            'keling', 'bitch', 'fellatio', 'masturbate', 'orgy', 'handjob', 'anus', 'sex', 'barua', 'hitam', 'pepek', 'mmq', 'bdsm', 
+            'futanari', 'kontol', 'fap', 'fapping', 'ejaculated', 'ejaculation', 'nakadanshi', 'onlyfans', 'mat6tube', 'exporn', 'rule34', 
+            'himedanshi', 'fujoshi', 'incest', 'nigger', 'cum', 'hentai', 'tete', 'coli', 'comli', 'horny', 'oni', 'honi', 'huni',
+            'whore', 'jizz', 'porn', 'creampie', 'nenen', 'squirt', 'ching chong', 'e-hentai', '3hentai', 'hentai18', 'boku no pico',
+            'nekopoi','neko poi', 'nhentai', 'hanime', 'hentaihaven', 'watchhentai', 'hentaicity', 'hentaianime', 'hentaifox',
+            'pornhub', 'xhamster', 'redtube', 'youporn', 'xnxx', 'xvideos', 'noodlemagazine',
+        ]
 
     // ✅ Skip if message is from the bot itself
     if (m.sender === conn.user.jid) return;
