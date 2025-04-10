@@ -17,11 +17,11 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
         ];
 
         // Prevent command spam within 10 seconds
-        if (cooldown.has(m.chat)) {
-            return m.reply("⏳ Please wait a moment before sending another broadcast.");
+        if (cooldown.has(m.text)) {
+            return;
         }
-        cooldown.add(m.chat);
-        setTimeout(() => cooldown.delete(m.chat), 10000); // 10 sec cooldown
+        cooldown.add(m.text);
+        setTimeout(() => cooldown.delete(m.text), 10000); // 10 sec cooldown
 
         // Helper to check if message is empty or just emojis
         const isOnlyEmoteOrEmpty = (text) => {

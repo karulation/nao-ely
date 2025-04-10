@@ -3,11 +3,19 @@ import fs from "fs/promises";
 
 let previousMessages = [];
 
-const fetchAIResponse = async (text, systemMessage, retries = 3) => {
+const cooldown = new Set(); // To prevent double broadcast
 
+const fetchAIResponse = async (text, systemMessage, retries = 3) => {
   let apiKey = routerapi;
 
   let apiUrl = "https://openrouter.ai/api/v1/chat/completions";
+
+  // Prevent command spam within 10 seconds
+  if (cooldown.has(m.text)) {
+    return;
+  }
+  cooldown.add(m.text);
+  setTimeout(() => cooldown.delete(m.text), 10000); // 10 sec cooldown
 
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
@@ -70,7 +78,10 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
 
     console.log(text);
 
-    let botReply = await fetchAIResponse(text, systemMessage + contactsText + naoDetail);
+    let botReply = await fetchAIResponse(
+      text,
+      systemMessage + contactsText + naoDetail
+    );
 
     await conn.sendMessage(m.chat, {
       text: botReply,
