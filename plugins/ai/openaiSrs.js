@@ -20,7 +20,7 @@ const fetchAIResponse = async (text, systemMessage, retries = 3) => {
           "X-Title": "<YOUR_SITE_NAME>", // Optional: Replace with your site name
         },
         body: JSON.stringify({
-          model: "meta-llama/llama-3.2-3b-instruct:free",
+          model: "nvidia/llama-3.1-nemotron-nano-8b-v1:free",
           messages: [
             { role: "system", content: systemMessage },
             { role: "user", content: text },
