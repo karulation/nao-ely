@@ -132,7 +132,7 @@ const fetchAIResponse = async (text, systemMessage, retries = 3) => {
 					"X-Title": "<YOUR_SITE_NAME>", // Optional: Replace with your site name
 				},
 				body: JSON.stringify({
-					model: "deepseek/deepseek-r1:free",
+					model: "meta-llama/llama-3.2-3b-instruct:free",
 					messages: [
 						{ role: "system", content: systemMessage },
 						{ role: "user", content: text },
