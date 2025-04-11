@@ -29,7 +29,7 @@ const fetchAIResponse = async (text, systemMessage, retries = 3) => {
           "X-Title": "<YOUR_SITE_NAME>", // Optional: Replace with your site name
         },
         body: JSON.stringify({
-          model: "nvidia/llama-3.1-nemotron-nano-8b-v1:free",
+          model: "deepseek/deepseek-r1:free",
           messages: [
             { role: "system", content: systemMessage },
             { role: "user", content: text },
