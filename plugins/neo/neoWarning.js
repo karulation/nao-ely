@@ -16,7 +16,7 @@ export async function before(m, { conn, text, participants }) {
             'hentai', 'bdsm', 'boobs', 'oppai', 'manko', 'pussy', 'bodo', 'bodoh', 'redo of healer', 'sexiest', 'pungkok', 'keling', 'paria', 
             'dick', 'konek', 'penis', 'fuck', 'ahegao', 'bokep', 'sefong', 'tobrut', 'tocil', 'toge', 'titid', 'tytid', 
             'ketek', 'armpit', 'pedo', 'seggs', 'segs', 'blowjob', 'nigga','kokop', 'ewe', 'ngewe', 'entot', 'ngentot', 'sepong', 
-            'keling', 'bitch', 'fellatio', 'masturbate', 'orgy', 'handjob', 'anus', 'sex', 'barua', 'hitam', 'pepek', 'mmq', 'bdsm', 
+            'keling', 'bitch', 'fellatio', 'masturbate', 'orgy', 'handjob', 'anus', 'sex', 'barua', 'pepek', 'mmq', 'bdsm', 
             'futanari', 'kontol', 'fap', 'fapping', 'ejaculated', 'ejaculation', 'nakadanshi', 'onlyfans', 'mat6tube', 'exporn', 'rule34', 
             'himedanshi', 'fujoshi', 'incest', 'nigger', 'cum', 'hentai', 'tete', 'coli', 'comli', 'horny', 'oni', 'honi', 'huni',
             'whore', 'jizz', 'porn', 'creampie', 'nenen', 'squirt', 'ching chong', 'e-hentai', '3hentai', 'hentai18', 'boku no pico',
