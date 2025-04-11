@@ -10,13 +10,6 @@ const fetchAIResponse = async (text, systemMessage, retries = 3) => {
 
   let apiUrl = "https://openrouter.ai/api/v1/chat/completions";
 
-  // Prevent command spam within 10 seconds
-  if (cooldown.has(m.text)) {
-    return;
-  }
-  cooldown.add(m.text);
-  setTimeout(() => cooldown.delete(m.text), 10000); // 10 sec cooldown
-
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
       let response = await fetch(apiUrl, {
@@ -58,6 +51,13 @@ const handler = async (m, { text, usedPrefix, command, conn }) => {
   if (!text) {
     throw "Ask anything!\n\n*Example:* Who is Tokiwadai Railgun?";
   }
+
+  // Prevent command spam within 10 seconds
+  if (cooldown.has(m.sender)) {
+    return;
+  }
+  cooldown.add(m.sender);
+  setTimeout(() => cooldown.delete(m.sender), 10000); // 10 sec cooldown
 
   try {
     let name = conn.getName(m.sender);
