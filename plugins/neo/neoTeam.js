@@ -24,6 +24,8 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
                             "- Son\n" +
                             "- Akkinior\n" +
                             "Head Admin of TikTok (neoanicom): Mui\n" +
+                            "- Tachyon\n" +
+                            "- Akii\n" +
                             "\n୨⎯ Entertainment Department ⎯୧\n" +
                             "Head of Department: Riezu\n" +
                             "- Izsyis\n" +
