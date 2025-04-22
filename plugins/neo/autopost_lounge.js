@@ -46,22 +46,8 @@ export async function before(m, { conn, text, participants }) {
         } else {
             // General text message
             for (const broadcastGroup of broadcastGroups) {
-                try {
-                    await conn.sendPresenceUpdate('composing', broadcastGroup); // simulate typing
-                    await new Promise(resolve => setTimeout(resolve, 2500)); // wait 2.5 seconds
-            
-                    await conn.sendMessage(broadcastGroup, {
-                        text: textMessage,
-                        previewType: 'link' // helps force link preview
-                    }, { quoted: m, mentions });
-            
-                    await conn.sendPresenceUpdate('paused', broadcastGroup);
-                    await new Promise(resolve => setTimeout(resolve, 1000)); // small gap between groups
-                } catch (err) {
-                    console.error(`❌ Failed to send to ${broadcastGroup}:`, err);
-                    await conn.sendMessage('60177637943-1634743268@g.us', `❌ Failed to send to ${broadcastGroup}: ${err.message || err.toString()}`);
-                }
-            }            
+                await conn.sendMessage(broadcastGroup, textMessage, null, { mentions });
+            }
         }
 
     }
