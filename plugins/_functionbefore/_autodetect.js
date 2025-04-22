@@ -19,8 +19,8 @@ export async function before(m) {
 		await this.reply(m.chat, `${edtr} change group name to :\n*${m.messageStubParameters[0]}*`, fkontak, { mentions: [m.sender] })
 	} else if (m.messageStubType == 22) {
 		await this.reply(m.chat, `${edtr} change group icon.`, fkontak, { mentions: [m.sender] })
-	} else if (m.messageStubType == 1 || m.messageStubType == 23 || m.messageStubType == 132) {
-		await this.reply(m.chat, `${edtr} *reset* group link!`, fkontak, { mentions: [m.sender] })
+	// } else if (m.messageStubType == 1 || m.messageStubType == 23 || m.messageStubType == 132) {
+	// 	await this.reply(m.chat, `${edtr} *reset* group link!`, fkontak, { mentions: [m.sender] })
 	} else if (m.messageStubType == 24) {
 		await this.reply(m.chat, `${edtr} change description.\n\n${m.messageStubParameters[0]}`, fkontak, { mentions: [m.sender] })
 	} else if (m.messageStubType == 25) {
