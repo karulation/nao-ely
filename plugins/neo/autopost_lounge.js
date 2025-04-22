@@ -3,8 +3,8 @@ import db from '../../lib/database.js';
 export async function before(m, { conn, text, participants }) {
     // Group IDs
     const groupID = '120363020837863962@g.us'; // Replace with actual group ID
-    const broadcastGroups = ['120363022290154127@g.us', '60177637943-1627735681@g.us', '120363022632239561@g.us']; // '60177637943-1634746023@g.us' Replace with actual non-gaming group IDs
-
+    const broadcastGroups = ['120363022290154127@g.us','60177637943-1627735681@g.us', '120363022632239561@g.us']; // '60177637943-1634746023@g.us' Replace with actual non-gaming group IDs
+    
     // ✅ Skip if message is from the bot itself
     if (m.sender === conn.user.jid) return;
 
@@ -45,14 +45,23 @@ export async function before(m, { conn, text, participants }) {
             }
         } else {
             // General text message
-            await conn.sendPresenceUpdate('composing', group);
-            await new Promise(resolve => setTimeout(resolve, 2500)); // let WhatsApp prep preview
-            await conn.sendMessage(group, {
-                text: textMessage,
-                previewType: 'link'
-            }, { mentions });
-            await conn.sendPresenceUpdate('paused', group);
-
+            for (const broadcastGroup of broadcastGroups) {
+                try {
+                    await conn.sendPresenceUpdate('composing', broadcastGroup); // simulate typing
+                    await new Promise(resolve => setTimeout(resolve, 2500)); // wait 2.5 seconds
+            
+                    await conn.sendMessage(broadcastGroup, {
+                        text: textMessage,
+                        previewType: 'link' // helps force link preview
+                    }, { quoted: m, mentions });
+            
+                    await conn.sendPresenceUpdate('paused', broadcastGroup);
+                    await new Promise(resolve => setTimeout(resolve, 1000)); // small gap between groups
+                } catch (err) {
+                    console.error(`❌ Failed to send to ${broadcastGroup}:`, err);
+                    await conn.sendMessage('60177637943-1634743268@g.us', `❌ Failed to send to ${broadcastGroup}: ${err.message || err.toString()}`);
+                }
+            }            
         }
 
     }
