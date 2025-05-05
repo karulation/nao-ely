@@ -19,7 +19,7 @@ export async function before(m, { conn, text, participants }) {
             'keling', 'bitch', 'fellatio', 'masturbate', 'orgy', 'handjob', 'anus', 'sex', 'barua', 'pepek', 'mmq', 'bdsm', 
             'futanari', 'kontol', 'fap', 'fapping', 'ejaculated', 'ejaculation', 'nakadanshi', 'onlyfans', 'mat6tube', 'exporn', 'rule34', 
             'himedanshi', 'fujoshi', 'incest', 'nigger', 'cum', 'hentai', 'tete', 'coli', 'comli', 'horny', 'oni', 'honi', 'huni',
-            'whore', 'jizz', 'porn', 'creampie', 'nenen', 'squirt', 'ching chong', 'e-hentai', '3hentai', 'hentai18', 'boku no pico',
+            'whore', 'jizz', 'porn', 'creampie', 'nenen', 'squirt', 'e-hentai', '3hentai', 'hentai18', 'boku no pico',
             'nekopoi','neko poi', 'nhentai', 'hanime', 'hentaihaven', 'watchhentai', 'hentaicity', 'hentaianime', 'hentaifox',
             'pornhub', 'xhamster', 'redtube', 'youporn', 'xnxx', 'xvideos', 'noodlemagazine',
         ]
