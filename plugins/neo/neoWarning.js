@@ -9,7 +9,7 @@ export async function before(m, { conn, text, participants }) {
         { id: '120363022632239561@g.us', name: 'Nao Basement' }
     ];
 
-    const neoHQ = '60177637943-1634743268@g.us'; // Notification group
+    const neoHQ = '120363022632239561@g.us'; // Notification group, currently : basement
 
     // List of bad words
         const badWords = [
